@@ -1,0 +1,633 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2{
+    color: #7B91BC;
+    font-size: 3rem !important;
+    font-family : 'cookie','serif','Times New Roman';
+
+}
+
+.dimension {
+    width: 80%;
+    margin: 2rem auto; 
+}
+
+.clear {
+    clear: both;
+}
+
+.float {
+    display: flex;
+    float: left;  
+}
+
+header {
+    position: relative;
+    color: white; 
+    background-color: #BFD2E1;                                                                  
+    height: auto; 
+    overflow: hidden;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 35%;
+    box-sizing: border-box;
+}
+
+#logo {
+    float: left;
+}
+
+#logo a {
+    text-decoration: none;
+    background-color: #7B91BC;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#menuResponsive {
+    width: 100%; 
+    display: none;
+    font-size: 1rem;
+    text-align: left;
+    position: absolute;
+    right: 0;
+    list-style-type: none;
+    background-color: white;
+   
+}
+
+#menuResponsive li { 
+    margin: 0.7rem 1.5rem ;
+
+}
+
+#menuResponsive li a{ 
+    color: #7B91BC;
+    margin: 1rem 0 ;
+}
+
+#icon_burger {
+    color: #7B91BC;
+    display: none;  
+}
+
+#navbar {
+    display: flex;
+    float: right;
+    text-align: center;
+    margin-top: 2%; 
+    margin-right: 1%; 
+    font-size: 1.3em; 
+}
+
+#navbar .menuDesktop a {
+    text-decoration: none;
+    color: white;
+    padding-right: 20px;
+}
+
+#navbar nav a:hover {
+    color: plum;
+}
+
+.container-1{
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+
+  }
+
+.container-1 .icon_research{
+    position: absolute;
+    bottom: 20%;
+    left: 85%;
+    z-index: 1;
+    color: gray;
+  }
+
+.container-1 input#search {
+    width: 90%;
+    line-height: 40px;
+    background: #ffffff;
+    border: none;
+    font-size: 10pt;
+    color: #63717f;
+    padding-left: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+.textes {
+    width: 60%;   
+}
+
+#citation {
+    font-size: 2.2em;
+    font-family: 'cookie', Lobster, cursive;
+    margin-left: 15%;
+
+}
+
+#textespan {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Saira, sans-serif;
+    margin-left: 15%;
+}
+
+.carousel {
+    width: 40%;
+    margin-top: 2%; 
+    text-align: center;
+}
+
+ header .reseaux_sociaux ul {
+    list-style-type: none;
+    position: absolute; 
+    left: 1%; 
+    top: 40%; 
+
+}
+
+#icon_instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  }
+
+#icon_facebook{
+  color:#3b5998;
+
+}
+ 
+.plus #plus_infos {  
+    font-size: 1.5em; 
+    text-align: center;
+    border-radius: 22px;
+    padding: 10px; 
+    text-decoration: none;
+    background-color: white;
+    color: #7B91BC;
+    box-sizing: border-box;
+}
+
+header .plus {
+    margin-bottom: 3%;
+    margin-left: 25%; 
+}
+
+#grosse_div {
+    display: flex;
+}
+
+#container {
+    width: 30%; 
+    margin: 0 2% 0 0; 
+    text-align: center;
+
+}
+
+#container span{
+    color: #7B91BC;
+    font-size: 1.2rem;
+}
+
+#container a {
+    color:#FFFFFF;
+    background-color: #BFD2E1;  
+    font-size: 1.5em; 
+    border-radius: 22px;
+    text-decoration: none;
+    padding: 2%; 
+    box-sizing: border-box;
+}
+
+#carte{  
+   width: 70%;
+}
+
+.cards{
+    width: 30%; 
+    border :3px solid #BFD2E1;
+    margin: 0 auto;
+    box-shadow: 5px 5px 15px #7B91BC;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.card-title {
+    font-family: 'cookie', 'times', 'serif';
+    font-size: 2rem;
+}
+
+.card-text{
+    font-family: 'overlock', 'times', 'serif';   
+}
+
+.btn-primary {
+    background-color: #BFD2E1 !important;
+    border :1px solid #BFD2E1 !important;
+}
+
+footer {
+    width: 100%; 
+    background-color: #7B91BC;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    display: flex;
+
+}
+
+#copyright{
+    float: left;
+    width: 50%;
+}
+
+#mentions {
+    width: 50%;
+}
+#mentions a {
+    text-decoration: none;
+    color: white; 
+  
+}
+
+/*------------------------------------RESPONSIVE-------------------------------------------------->
+/* RESPONSIVE IPAD */
+
+@media screen and (max-width: 1024px){
+
+    .menuDesktop, #logo a {
+            display: none;
+    }
+    
+    #icon_burger {
+        display: block;
+        margin: 10px 20px; 
+    }
+
+    #menuResponsive {  
+        top: 12%; 
+    }
+        
+    #grosse_div {
+        display: block;
+        }
+        
+    #container {
+        width: 100%; 
+        margin: 0 5px 30px; 
+    }
+        
+    #carte{  
+        width: 100%;
+    }
+
+}
+
+
+/* RESPONSIVE  mobile */
+@media screen and (max-width: 612px){
+
+    .dimension {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+     h2{
+        font-size: 2rem !important;
+        text-align: center;
+      
+    }
+    .float {
+        display: block;
+        float: none;
+    }
+
+    .menuDesktop, #logo a {
+        display: none;
+    }
+
+    header {
+        border-radius: 0;
+    }
+
+    #logo {
+        clear: both;
+    }
+
+    header .reseaux_sociaux ul {
+        display: none; 
+    }
+
+    .container-1{
+        width: 200px;
+    }
+
+    .container-1 input#search{
+        line-height: 30px;
+
+    }
+    #icon_burger {
+        display: block;
+    }
+
+    #menuResponsive {  
+        top: 6%; 
+    }
+    #logo_img {
+        width: 60%; 
+    }
+
+    .textes,  .carousel {
+        width: 100%; 
+        margin: 0; 
+    }
+
+    #citation, #textespan {
+        margin: 14px 20px;
+    }
+
+    header .plus {
+        margin: 5% auto; 
+        text-align: center;
+    
+    }
+    .plus #plus_infos {  
+        font-size: 1em;
+    }   
+
+    /*----------------------------------------------*/
+
+    #container {
+        width: 100%; 
+        margin: 0 5px 30px; 
+    }
+
+    #carte, .cards{  
+        width: 100%;
+    }
+
+    #copyright, #mentions{
+        display: block; 
+        width: 100%;
+        background-color: #7B91BC;
+    }
+    #mentions {
+        background-color: #77B5FE;
+    }
+
+}
+
+/* RESPONSIVE  mobile */
+@media screen and (max-width: 400px){
+    .container-1{
+        display: none; 
+    }
+
+}
+
+
+/* PAGE RECETTES */
+
+#listRecettes h2{
+    margin-left: 2rem;
+   
+}
+
+.flex {
+    display: flex;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.recette_img {
+    width: 50%;
+    flex: auto; 
+    text-align: center;
+    padding: 0 2rem;
+
+}
+
+.recette_img img{
+    height: 300px; 
+    object-fit: cover;
+}
+
+.titre_recette {
+    background-color:  #BFD2E1;
+    padding: 10px 20px;
+}
+
+#video_youtube {
+    margin: 20px auto; 
+    text-align: center; 
+}
+
+#video_youtube iframe {
+    width: 70%;
+    height: 300px;
+    border: 0
+}
+.separated {
+    border: 2px dashed red;
+    width: 50%;
+    margin: 10px auto 20px;
+
+}
+
+#topRecherche {
+    display: flex;
+    margin: 1rem 2rem;
+    color: #7B91BC;
+}
+
+.plusRecherche {
+    flex: auto;    
+}
+
+.titleRecettes p a {
+    text-decoration: none;
+    color: #7B91BC;
+}
+
+
+/*------------------------------------RESPONSIVE-------------------------------------------------->
+/* RESPONSIVE IPAD */
+
+@media screen and (max-width: 800px){
+    .recette_img img{
+        height: 200px;
+   
+    }
+
+    #listRecettes h2{
+        margin-left: 0;
+       
+    }
+}
+
+/* RESPONSIVE  mobile */
+@media screen and (max-width: 612px){
+  
+    #listRecettes {
+        width: 100%; 
+        
+    }
+    .flex, #topRecherche {
+        display: block;
+    }
+
+    .recette_img{
+        width: 100%;
+        padding: 15px 0;    
+    }
+
+    .recette_img img{
+      height: auto;
+    }
+    #video_youtube iframe {
+        width: 100%;
+    }
+
+}
+/* --------------- FROM FICHIERS DE MELISSA ----------------------------*/
+
+#cookies{
+    
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color:#7B91BC;
+    font-family: 'overlock', 'times', 'serif';
+    opacity:0.8;
+   
+}
+#cookies button{
+        margin: 0 0% 2% 70%;
+        color:#7B91BC;
+        border:none;
+        padding:0.5%;
+   
+}
+#cookies p{
+    margin-bottom:0;
+}
+/*------------------------------------------------QUI SOMMES-NOUS?-------------------------------*/
+
+#page_qui{
+    margin-bottom: 0;
+}
+
+.qui{
+    display: flex;
+    
+}
+#introduction {
+    width:70%;
+    text-align: justify;
+    
+}
+
+#img_intro {
+    width: 30%;
+    margin: 7% 0 0 3%; 
+
+  
+}
+#img_intro img{
+    width : 100%;
+    margin-bottom: 1rem;
+
+}
+
+/*---------------------------------------FORMULAIRE----------------------------------------------*/
+
+form{
+    width: 80%;
+    /* margin: 0 auto; */
+    color: #FFFFFF;
+    background-color:#BFD2E1;
+    padding: 2%;
+    font-family: 'overlock', 'times', 'serif';
+    border-radius: 20px;
+
+}
+.btn-secondary{
+    background-color: #ffffff !important;
+    border :1px solid #ffffff !important;
+    color: #7B91BC !important;
+  
+}
+
+@media screen and (max-width: 612px){
+ 
+     /* QUI SOMMES-NOUS */
+
+     #img_intro {
+        display: none;
+        
+    }
+
+    #introduction {
+        width:100%;
+        
+    }
+
+    form{
+        width: 100%;
+    }   
+}
+
+/*--------------------------------------CONNEXION ET INSCRIPTION----------------------------------------*/
+
+h5, .creer_compte a  { 
+    color: #7B91BC;
+}
+
+.creer_compte a  { 
+    margin-top: 2rem; 
+}
+
+#connect {
+    width: 50%;
+    margin: 2rem auto; 
+}
+
+input[type="radio"] {
+        margin: 0 0.7rem 0 0;
+}
+
+
+@media screen and (max-width: 612px){
+
+    #connect {
+       width: 100%;      
+   }
+
+   h5 {
+    text-align: center;
+    margin-bottom: 2rem;
+   }
+}
