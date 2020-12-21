@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Ingredient;
 use App\Entity\Recette;
-use App\Entity\Ustensile;
 use App\Form\RecetteFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,6 +20,22 @@ class HomeController extends AbstractController
     {
         return $this->render('home/home.html.twig');
         
+    }
+
+     /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactPage(): Response
+    {
+        return $this->render('home/contact.html.twig');
+    }
+
+     /**
+     * @Route("/mentions", name="mentions")
+     */
+    public function mentionsPage(): Response
+    {
+        return $this->render('home/mentions.html.twig');
     }
 
      /**
@@ -52,10 +67,9 @@ class HomeController extends AbstractController
            }
 
           //on envoit une vue de formulaire au template
-           return $this->render('admin/dashboard/index.html.twig',[
-               'recette_form'=>$form->createView()
-
-           ]);
-
+           return $this->render('admin/dashboard/index.html.twig');
+        
     }
+    
+
 }
