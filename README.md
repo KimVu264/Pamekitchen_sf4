@@ -50,3 +50,19 @@ php bin/console doctrine:migrations:migrate
 ```shell
 php bin/console doctrine:fixtures:load
 ```
+git config --global core.safecrlf false (if git add . ne marche pas)
+
+
+/** @var Article|null $article */
+        $article = $options['data'] ?? null;
+        $isEdit = $article && $article->getId();
+new NotNull(['message' => 'Please upload an image']);
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+getMimeType
+$videoFilename = uniqid(time()) . '.' . $uploadedFile->getClientOriginalExtension();
+            $uploadedFile->move(__DIR__ . '/../../public/uploads', $videoFilename);
+            $recette->setVideo($videoFilename);
+{{ asset('uploads/' ~ recette.video) }}
+
+https://symfony.com/doc/current/reference/forms/types/collection.html
+

@@ -1,1 +1,54 @@
 {% extends "_template.html.twig" %}
+
+{% block content %}
+    <section id="grosse_div" class= "dimension">   
+
+        <div id='container'>
+            <h2 >Nos recettes</h2>
+            
+            <span>Gâteaux, tartes, viennoiseries, macarons...<br><br>
+                Même si c'est pas très raisonnable, on mangerait bien des pâtisseries tous les jours.
+                
+            </span>
+        
+            <br><br>
+            <a href="recette.php" >Plus de recettes</a>
+        </div>
+
+        
+        <div id="carte" class="float"> 
+
+            <div class="cards" >
+                <img src= "{{asset ('build/chocolate-cake.jpg')}}" class="card-img-top" alt="photo de gateau chocolat">
+                <div class="card-body">
+                    <h5 class="card-title">Gâteaux</h5>
+                    <p class="card-text">
+                        Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries
+                        </p>  
+                    <a href="#" class="btn btn-primary">Miam</a>
+                </div>
+            </div>
+
+            <div class="cards">
+                <img src="{{ asset ('build/viennoiseries.jpg') }}" class="card-img-top" alt="photo de viennoiseries">
+                <div class="card-body">
+                    <h5 class="card-title">Viennoiseries</h5>
+                    <p class="card-text">
+                        Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries
+                    </p>
+                    <a href="#" class="btn btn-primary">Miam</a>
+                </div>
+            </div>
+
+            <div class="cards">
+                <img src="{{ asset ('build/macaron_fraise.jpg') }}" class="card-img-top" alt="photo de macarons">
+                <div class="card-body">
+                    <h5 class="card-title">Macarons</h5>
+                    <p class="card-text">Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries</p>
+                    <a href="#" class="btn btn-primary">Miam</a>
+                </div>
+            </div>
+        </div>
+        <div class ="clear"></div>
+    </section>  
+{% endblock %}
