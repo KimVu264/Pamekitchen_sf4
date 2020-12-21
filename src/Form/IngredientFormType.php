@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,7 @@ class IngredientFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class,[
+            ->add('nom',TextType::class,[
                 'constraints'=>[
                     new notBlank(['message'=>'Le nom des ingrédients est manquant']),
                     new Length([
@@ -39,7 +40,7 @@ class IngredientFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class'=>Ingredient::class
         ]);
     }
 }

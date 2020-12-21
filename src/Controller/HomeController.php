@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Ingredient;
+use App\Entity\Recette;
+use App\Entity\Ustensile;
 use App\Form\RecetteFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +30,7 @@ class HomeController extends AbstractController
     public function recetteAdd(Request $request, EntityManagerInterface $manager)
     {
            //1. Créer le formulaire
-           $form=$this->createForm(RecetteFormType::class);
+           $form=$this->createForm(RecetteFormType::class,(new Recette())->addIngredient(new Ingredient));
 
            //2.Passage de la requête au formulaire (récupération des données POST, validation)
            $form->handleRequest($request);

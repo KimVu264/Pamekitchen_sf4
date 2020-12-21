@@ -10,16 +10,13 @@
             {{form_row (recette_form.nbr_pers, {label:'Nombre de personnes :'}) }}
 
 
-          {% for ingredients in form.ingredients %}
+          {% for ingredients in recette_form.ingredients %}
 
-          {{form_start(ingredients_form)}}
+            {{form_row (ingredients.quantite, {label:'Quantités :'}) }} 
 
-            {{form_row (recette_form.quantite, {label:'Quantités :'}) }} 
+            {{form_row (ingredients.nom, {label:'Ingrédients :'}) }}
 
-            {{form_row (recette_form.nom, {label:'Ingrédients :'}) }}
-
-          {{form_end(ingredients_form)}}
-
+      
           {% endfor %} 
 
 
