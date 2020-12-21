@@ -83,6 +83,9 @@
             <button type='submit' id="accepter" >ACCEPTER</button>
         </div> #}
 
+        {# Bloc qui contiendra le contenu de chaque page #}
+        {% block content %}{% endblock %}
+
     {#----------------------------------------------FOOTER--------------------------------------------------------#}
    
     <footer>
@@ -96,6 +99,5 @@
         </span>
     </footer>
     <div class ="clear"></div>
-
 
  {% endblock %}

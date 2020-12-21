@@ -1,0 +1,69 @@
+{% extends "admin/_templateadmin.html.twig" %}
+
+{% block title %}
+    Recettes
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <h1 class="title">Recettes: {{ recette_list|length }}</h1>
+
+
+       <!-- {% include "includes/flash.html.twig" %} -->
+
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>Auteur</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Ingrédients</th>
+                <th>Ustensiles</th>
+                <th>Nombre de personnes</th>
+                <th>Temps total</th>
+                <th>Temps préparation</th>
+                <th>Temps cuisson</th>
+                <th>Vidéo</th>
+                <th>Préparation</th>
+                <th>
+                    <a href="#" class="button is-info is-small">
+                        Nouvelle recette
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for recette in recette_list %}
+                <tr>
+                    <td>{{ recette.user }}</td>
+                    <td>{{ recette.name }}</td>
+                    <td>{{ recette.description|slice(0, 25) }}</td>
+
+                    {#proriété quantité se trouve dans l'entité ingrédient#}
+                    <td>{{ recette.quantite }}</td>
+                    {##}
+                    
+                    <td>{{ recette.ingredients }}</td>
+                    <td>{{ recette.ustensiles }}</td>
+                    <td>{{ recette.nbr_pers }}</td>
+                    <td>{{ recette.tps_total }}</td>
+                    <td>{{ recette.tps_prepare }}</td>
+                    <td>{{ recette.tps_cuisson }}</td>
+                    <td>{{ recette.video }}</td>
+                    <td>{{ recette.preparation }}</td>
+                    <td>
+                        <a href="#" class="button is-small is-success">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="#" class="button is-small is-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

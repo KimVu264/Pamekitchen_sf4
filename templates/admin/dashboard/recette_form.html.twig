@@ -1,0 +1,42 @@
+       {{form_start(recette_form)}}
+
+          {#récupération du pseudo lors de la connexion#}
+          {{form_row (recette_form.user, {label:'Pseudo :'}) }}
+
+            {{form_row (recette_form.name,{label:'Nom de la recette :'}) }}
+
+            {{form_row (recette_form.description, {label:'Description :'}) }}
+
+            {{form_row (recette_form.nbr_pers, {label:'Nombre de personnes :'}) }}
+
+
+          {% for ingredients in form.ingredients %}
+
+          {{form_start(ingredients_form)}}
+
+            {{form_row (recette_form.quantite, {label:'Quantités :'}) }} 
+
+            {{form_row (recette_form.nom, {label:'Ingrédients :'}) }}
+
+          {{form_end(ingredients_form)}}
+
+          {% endfor %} 
+
+
+            {{form_row (recette_form.ustensiles, {label:'Ustensiles :'}) }}
+
+            {{form_row (recette_form.tps_total, {label:'Temps total :'}) }}
+
+            {{form_row (recette_form.tps_prepare, {label:'Temps préparation :'}) }}
+
+            {{form_row (recette_form.tps_cuisson, {label:'Temps cuisson :'}) }}
+
+            {# {{form_row (recette_form.video, {label:'Insérer votre vidéo :'}) }} #}
+
+            {{form_row (recette_form.preparation, {label:'Les étapes de votre recette :'}) }}
+
+            <button type="submit" class="button is-primary is-fullwidth">
+                 Enregistrer
+            </button>
+
+        {{form_end(recette_form)}}

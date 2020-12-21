@@ -1,0 +1,36 @@
+{% extends "admin/_templateadmin.html.twig" %}
+
+{% block title %}
+
+    Suppression de {{artist.name}}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="section">
+
+        <h1 class="title">Suppression de l'artiste {{artist.name}}</h1>
+
+        {% include "includes/flash.html.twig" %}
+
+         {{form_start(confirm_form)}}
+
+
+            {{form_row (confirm_form.confirmation,{
+                
+                label:'Je confirme la suppression de l\'artiste'~ artist.name ~ 'et de ses albums.'
+
+            }) }}
+
+            <button type="submit" class="button is-danger is-fullwidth">
+                Supprimer
+            </button>
+
+        {{form_end(confirm_form)}}
+
+        
+    
+    </div>
+
+{% endblock %}

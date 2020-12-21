@@ -1,0 +1,20 @@
+{% extends "admin/_template.html.twig" %}
+
+{% block title %}
+
+    Artiste - {{artist.name}}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="section">
+
+        <h1 class="title">{{artist.name}}</h1>
+        {% include "includes/flash.html.twig" %}
+
+        {% include "admin/dashboard/_artist_form.html.twig" %}
+    
+    </div>
+
+{% endblock %}
