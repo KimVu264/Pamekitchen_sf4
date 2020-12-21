@@ -1,0 +1,67 @@
+{% extends "_template.html.twig" %}
+
+{% block content %}
+<section id="page_qui" class="dimension">
+
+    <div class="qui">
+            <div id="introduction">
+
+                <h2>Qui sommes-nous ?</h2>
+
+                    <p>Pamekitchen est l'alliance de 3 "super" gourmandes Paméla, Mélissa et Kim.</p>
+                    <p>Pour nous les pâtisseries, les desserts et les viennoiseries sont un réconfort pour l'âme et l'esprit.</p>
+                    <p>Après une journée insupportable , un chagrin ou tout simplement l'envie de faire ou se faire plaisir, qui n'a jamais pensé à se faire un bon gâteau au chocolat, tarte à la fraise ou pain au chocolat.</p>
+                    <p>Grâce à Pamekitchen, vous trouverez des recettes originales, alléchantes et à la portée de tous.</p><br>
+                    <p><strong>Notre concept</strong>, créér une communauté de Pamekitchener qui échangent des astuces, des recettes afin de se faire plaisir.</p>
+                    <p>Si comme nous, ton pêché mignon c'est les douceurs, que tu aimes élaborer des recettes originales, n'hésite pas à t'inscrire <a href="insertion_recette.php" style="text-decoration:underline; ">ici</a> et à les partager !!!</p><br>
+                    <p>A bientôt les Pamekitchener</p> <br>
+
+            </div>
+
+            <div id="img_intro">
+                <img src="{{asset ('build/femme_gateau.jpg') }}" alt=" femme qui mange un gâteau">
+                <img src="{{ asset ('build/trois_jeunes_femmes_au_cafe.jpg')}}" alt=" trois jeunes femmes au cafe">
+                <!-- <img src="img/femme_gateau.jpg" alt=" femme qui mange un gâteau">
+                <img src="img/femme_gateau.jpg" alt=" femme qui mange un gâteau"> -->
+                
+            </div>
+
+    </div>
+
+    <div id="contact">
+
+        <h2>Nous contacter</h2><br>
+      
+                <form id="form" method="post">
+
+                    <label>Civilité</label><br>
+                    <input type="radio" name="civilité" value="Mme" checked>Madame<br>
+                    <input type="radio" name="civilité" value="M">Monsieur<br><br>
+                
+                    <label>Nom</label><br>
+                    <input type="text" name="nom" class="form-control"><br>
+                
+                    <label>Prenom</label><br>
+                    <input type="text" name="prenom" class="form-control"><br>
+                
+                    <label>Email</label><br>
+                    <input type="email" name="email" class="form-control"><br>
+
+                    <label>Message</label><br>
+                    <textarea name="message" class="form-control" rows="3"></textarea><br>           
+                
+                    <input type="submit" value="Envoyer" class="btn btn-secondary">
+
+                </form>
+
+                <!-- <div id='photo'>
+                    <img src='img/mon-tiramisu.jpg' alt="macarons de toutes les couleurs ">
+                </div> -->
+
+             <br><br>
+
+     </div>
+</section>
+
+
+{% endblock %}

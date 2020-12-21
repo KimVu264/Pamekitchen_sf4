@@ -18,12 +18,18 @@ class HomeController extends AbstractController
     }
 
      /**
-     * @Route("/test", name="test")
+     * @Route("/contact", name="contact")
      */
-    public function test(): Response
+    public function contactPage(): Response
     {
-        return $this->json([
-            
-        ]);
+        return $this->render('home/contact.html.twig');
+    }
+
+     /**
+     * @Route("/mentions", name="mentions")
+     */
+    public function mentionsPage(): Response
+    {
+        return $this->render('home/mentions.html.twig');
     }
 }

@@ -1,1 +1,81 @@
 {% extends "_template.html.twig" %}
+
+{% block content %}
+
+    <section id = "listRecettes" class= "dimension"> 
+
+        <h2>Les dernières recettes irrésistibles </h2>
+        <div class= "flex">
+            <div class = "recette_img">
+                <a href="">
+                    <img src="{{asset ('build/eclairs_cafe.jpeg') }}" alt="éclairs au café" style="width:100%;">
+                </a>
+                 <div class= "titre_recette">
+                    <a href="">Éclairs au café</a>
+                </div>
+            </div>
+
+            <div class = "recette_img">
+                <a href="">
+                    <img src="{{ asset ('build/fondant_au_chocolat.jpeg') }}" alt="fondant_au_chocolat" style="width:100%;">
+                </a>    
+                <div class= "titre_recette">
+                     <a href="">Fondant au chocolat</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="video_youtube">
+            <iframe src="https://www.youtube.com/embed/9wHOZqmtz0I" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+        </div>
+        
+        <div class= "flex">
+            <div class = "recette_img">
+                <a href="">
+                    <img src="{{asset ('build/meringues.jpg') }}" alt="meringues" style="width:100%;">
+                </a>
+                 <div class= "titre_recette">
+                    <a href="">Méringues au chocolat</a>
+                </div>
+            </div>
+
+            <div class = "recette_img">
+                <a href="">
+                    <img src="{{asset ('build/millefeuille.jpeg') }}" alt="mille-feuille passion ananas" style="width:100%;">
+                </a>    
+                <div class= "titre_recette">
+                     <a href="">Mille-feuille passion ananas</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separated">
+        
+        <div id="top_recette">
+            <h2>Le top des recettes</h2>
+            <div id="topRecherche">
+                <div class="plusRecherche">
+                    <h5>Les recettes les plus consultées</h5>
+                    <div class="titleRecettes">
+                        <p><a href="">Tiramisu</a></p>
+                        <p><a href="">Gâteau au chocolat</a></p>
+                        <p><a href="">Semlor</a></p>
+                        <p><a href="">Gâteau au yaourt</a></p>
+                        <p><a href="">Canelés bordelais</a></p>
+                    </div>
+                </div>
+                <div class="plusRecherche">
+                    <h5>Les recettes les plus faciles</h5>
+                    <div class="titleRecettes">
+                        <p><a href="">Tiramisu</a></p>
+                        <p><a href="">Gâteau au chocolat</a></p>
+                        <p><a href="">Semlor</a></p>
+                        <p><a href="">Gâteau au yaourt</a></p>
+                        <p><a href="">Canelés bordelais</a></p>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
