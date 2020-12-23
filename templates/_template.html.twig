@@ -6,8 +6,29 @@
             <div class="logo">
                 <a href="{{path ('home')}}"><img id = "logo_img" src="{{asset ('build/logo_new_pamekitchen.png')}} " alt="pamekitchen patisserie">
                 </a>
-            
-                <a class="connexion" href="connexion.php">Connexion</a>
+            {% if app.user %}   
+                <a class="button is-primary is-small" href="#">
+                    <strong>{{ app.user.pseudo }}</strong>
+                </a>
+
+                <a class="connexion" href="{{ path ('app_logout') }}">
+                    Déconnexion
+                </a>
+
+            {% else %}
+                {# <a class="button is-primary is-small" href="#">
+                    <strong>Inscription</strong>
+                </a> #}
+                <a class="connexion" href="{{ path ('app_login') }}">
+                    Connexion
+                </a>  
+
+            {% endif %}     
+
+            {% if is_granted ('ROLE_ADMIN') %}
+                <a class="connexion" href="{{ path ('admin_dashboard')}}">Back-office</a>
+            {% endif %}
+
             </div>          
             <div id="navbar"> 
                 <div class="container-1">

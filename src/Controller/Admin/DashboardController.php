@@ -16,11 +16,19 @@ use Symfony\Component\Routing\Annotation\Route;
 // use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
+/** 
+ * Définition de préfixes de routes (préfixes d'URL et de nom):
+ * @Route("/admin", name ="admin_")
+*/
+
 class DashboardController extends AbstractController
 {
-    /**
-     * @Route("/test", name="test")
+   /**
+     * URL: /admin
+     * nom: admin_dashboard
+     * @Route("", name="dashboard")
      */
+    
     public function index(): Response
     {
         return $this->render('/admin/dashboard/index.html.twig');

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ingredient;
+use App\Entity\Recette;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
@@ -95,6 +96,7 @@ class RecetteFormType extends AbstractType
     {
         $resolver->setDefaults([
             // Configure your form options here
+            'data_class'=>Recette::class
         ]);
     }
 }
