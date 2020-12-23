@@ -1,0 +1,49 @@
+{% extends "_template.html.twig" %}
+
+{% block title %}
+    Connexion
+{% endblock %}
+
+{% block content %}
+    <section id="connect" class="dimension">
+
+    	<h5>Connectez-vous avec vos identifiants Pamekitchen</h5>
+        
+
+            {# si l'utilisateur est déjà connecté #}
+            {% if app.user %}
+                <div class="alert alert-success">
+                    Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path ('app_logout') }}">Déconnexion</a>
+                </div>
+            {% endif %}
+
+            {# si une erreur survient #}
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {# formulaire de connexion #}
+            <form method="post">
+                <div class="field">
+                    <label for="inputEmail">Email ou pseudo</label>
+                    <input class="form-control" type="text" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>           
+                </div>
+
+                <div class="field">
+                    <label  for="inputPassword">Mot de passe</label>
+                    <input class="form-control" type="password" name="password" id="inputPassword" required>                 
+                </div>
+                <br>
+                {# un champ caché pour la protection des failles CSRF #}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="submit" value="Connexion" class ="btn btn-secondary">
+            </form>
+            <span class="creer_compte">
+		        <a href="{{path ('user')}}">Cliquez ici pour créer un compte</a>
+	        </span>
+    </section>
+{% endblock %}
+
+
+
+

@@ -66,9 +66,10 @@ class HomeController extends AbstractController
               return $this->redirectToRoute('home',['id'=>$recette->getId()]);
            }
 
-          //on envoit une vue de formulaire au template
-           return $this->render('admin/dashboard/index.html.twig');
-        
+           //on envoit une vue de formulaire au template
+           return $this->render('admin/dashboard/index.html.twig',[
+            'recette_form'=>$form->createView()
+            ]);
     }
     
 

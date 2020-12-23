@@ -22,6 +22,9 @@ h2{
     font-family : 'cookie','serif','Times New Roman';
 
 }
+.alert-danger {
+    width:80% !important; 
+}
 
 .dimension {
     width: 80%;
@@ -47,6 +50,15 @@ header {
     border-bottom-right-radius: 35%;
     box-sizing: border-box;
 }
+
+#admin{
+    background-color: #BFD2E1; 
+    color: white; 
+    box-sizing: border-box;
+    height: auto; 
+    overflow: hidden;
+}
+
 
 .logo {
     float: left;
