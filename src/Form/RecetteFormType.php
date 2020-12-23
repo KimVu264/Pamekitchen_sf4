@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -56,11 +56,14 @@ class RecetteFormType extends AbstractType
             //     'mapped'=>false
             // ])
             ->add('ingredients',CollectionType::class,[
-                'entry_type'=> Ingredient::class,
+                'entry_type'=> IngredientFormType::class,
                 'constraints'=>[
-                    new notBlank(['message'=>'Merci de remplir les ingrédients nécessaire à la recette'])
+                    new Count([
+                        'min'=>1
+                    ])
                 ]  
             ])
+            
             ->add('ustensiles',TextType::class)
             ->add('user',TextType::class)
             
