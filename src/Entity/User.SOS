@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,8 +11,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ *  @UniqueEntity (
+ *     fields={"email"},
+ *     message="This email already exists."
+ * )
+ * @UniqueEntity (
+ *     fields={"pseudo"},
+ *     message="This pseudo already exists"
+ * )
  */
-class User implements UserInterface
+class User implements UserInterface 
 {
     /**
      * @ORM\Id
@@ -22,6 +31,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * 
      */
     private $email;
 
@@ -33,6 +43,7 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * 
      */
     private $password;
 
@@ -40,6 +51,12 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Recette::class, mappedBy="user")
      */
     private $recettes;
+
+    /**
+     * @ORM\Column(type="string", length=50, unique=true)
+     * 
+     */
+    private $pseudo;
 
     public function __construct()
     {
@@ -150,6 +167,18 @@ class User implements UserInterface
                 $recette->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
 
         return $this;
     }
