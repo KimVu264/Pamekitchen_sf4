@@ -23,7 +23,7 @@ class Ustensile
     private $nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="ustensiles")
+     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="ustensiles", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $recette;

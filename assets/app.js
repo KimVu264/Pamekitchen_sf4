@@ -4,3 +4,5 @@ require('./app.scss');
 
 // Récupérer fichier js  de l'entrée
 require('./script.js'); 
+
+require('./bouton.js'); 

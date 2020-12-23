@@ -275,6 +275,36 @@ footer {
   
 }
 
+.form-control {
+    width : 50%;
+    margin: auto;
+}
+
+.button {
+    margin-left: 70%;
+    font-size: 90%; 
+    text-align: center;
+    border-radius: 22px;
+    padding: 10px; 
+    text-decoration: none;
+    background-color: white;
+    color: #7B91BC;
+    box-sizing: border-box;
+    border:none;
+}
+
+form{
+    margin:auto;
+}
+
+
+
+// #ingredient_list{
+//     display:flex;
+// }
+
+
+
 /*------------------------------------RESPONSIVE-------------------------------------------------->
 /* RESPONSIVE IPAD */
 

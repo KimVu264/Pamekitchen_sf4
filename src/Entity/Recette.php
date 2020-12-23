@@ -54,25 +54,25 @@ class Recette
      */
     private $preparation;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $video;
+    // /**
+    //  * @ORM\Column(type="string", length=255)
+    //  */
+    // private $video;
 
     /**
-     * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recette", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recette", orphanRemoval=true, cascade={"persist"})
      */
     private $ingredients;
 
     /**
-     * @ORM\OneToMany(targetEntity=Ustensile::class, mappedBy="recette", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Ustensile::class, mappedBy="recette", orphanRemoval=true, cascade={"persist"})
      */
     private $ustensiles;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
-     */
-    private $user;
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
+    //  */
+    // private $user;
 
     public function __construct()
     {
@@ -170,17 +170,17 @@ class Recette
         return $this;
     }
 
-    public function getVideo(): ?string
-    {
-        return $this->video;
-    }
+    // public function getVideo(): ?string
+    // {
+    //     return $this->video;
+    // }
 
-    public function setVideo(string $video): self
-    {
-        $this->video = $video;
+    // public function setVideo(string $video): self
+    // {
+    //     $this->video = $video;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection|Ingredient[]
@@ -242,16 +242,16 @@ class Recette
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
+    // public function getUser(): ?User
+    // {
+    //     return $this->user;
+    // }
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
+    // public function setUser(?User $user): self
+    // {
+    //     $this->user = $user;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
 }

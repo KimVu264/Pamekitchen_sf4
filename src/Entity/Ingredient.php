@@ -28,7 +28,7 @@ class Ingredient
     private $quantite;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="ingredients")
+     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="ingredients", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $recette;

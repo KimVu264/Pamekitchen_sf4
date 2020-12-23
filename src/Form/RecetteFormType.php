@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\File;
 
 class RecetteFormType extends AbstractType
 {
@@ -54,18 +55,36 @@ class RecetteFormType extends AbstractType
                 ]
             ])
             // ->add('video_file',FileType::class,[
-            //     'mapped'=>false
+            //     'label'=> 'télécharger votre fichier',
+            //     'mapped'=>false,
+            //     'required'=>false,
+            //     'constraints'=>[
+            //         new File([
+            //             'maxSize'=>'100Mo'
+            //         ])
+            //     ]
             // ])
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
+                'allow_add' => true,
                 'constraints'=>[
                     new Count([
                         'min'=>1
                     ])
                 ]  
             ])
-            ->add('ustensiles',TextType::class)
-            ->add('user',TextType::class)
+            ->add('ustensiles',CollectionType::class,[
+                'entry_type'=> UstensileFormType::class,
+                'allow_add' => true,
+                'constraints'=>[
+                    new Count([
+                        'min'=>1
+                    ])
+                ]    
+
+            ])
+
+            // ->add('user',TextType::class)
             
         ;
     }
