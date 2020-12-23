@@ -67,6 +67,7 @@ class RecetteFormType extends AbstractType
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
                 'allow_add' => true,
+                'by_reference'=>false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
@@ -76,6 +77,7 @@ class RecetteFormType extends AbstractType
             ->add('ustensiles',CollectionType::class,[
                 'entry_type'=> UstensileFormType::class,
                 'allow_add' => true,
+                'by_reference'=>false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
