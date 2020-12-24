@@ -32,6 +32,7 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         return $this->render('/admin/dashboard/index.html.twig');
+
     }
 
      /**
@@ -84,7 +85,10 @@ class DashboardController extends AbstractController
 
                 //   //ajout d'un message flash
                 //   $this->addFlash('success','Le nouvel artiste a été enregistré.');
-                return $this->render('home/contact.html.twig');
+                // return $this->render('home/contact.html.twig');
+                return $this->render('admin/dashboard/index.html.twig',[
+                  'recette_form'=>$form->createView()
+                  ]);
             }
 
 

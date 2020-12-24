@@ -42,11 +42,13 @@ class RecetteFormType extends AbstractType
                     ])
                 ]
             ])
+
             ->add('nbr_pers',IntegerType::class,[
                 'constraints'=>[
                     new notBlank(['message'=>'Merci de renseigner le nombre de personnes pour cette recette'])
                 ]
             ])
+
             ->add('tps_total',IntegerType::class)
             ->add('tps_cuisson',IntegerType::class)
             ->add('tps_prepare',IntegerType::class)
@@ -55,16 +57,20 @@ class RecetteFormType extends AbstractType
                     new notBlank(['message'=>'Merci de remplir les étapes de votre recette'])
                 ]
             ])
-            // ->add('video_file',FileType::class,[
-            //     'label'=> 'télécharger votre fichier',
-            //     'mapped'=>false,
-            //     'required'=>false,
-            //     'constraints'=>[
-            //         new File([
-            //             'maxSize'=>'100Mo'
-            //         ])
-            //     ]
-            // ])
+            ->add('imageFile',FileType::class,[
+                'required'=>false,
+                // 'placeholder'=>'blabla'
+            ])
+
+            
+
+                // ->add('recette_video', CollectionType::class, [
+                //     'entry_type' => ProductImageType::class,
+                //     'allow_add' => true,
+                //     'allow_delete' => true,
+                //     'prototype' => true
+                // ])
+        
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
                 'allow_add' => true,
@@ -92,11 +98,11 @@ class RecetteFormType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            // Configure your form options here
-            'data_class'=>Recette::class
-        ]);
-    }
+        public function configureOptions(OptionsResolver $resolver)
+        {
+            $resolver->setDefaults([
+                // Configure your form options here
+                'data_class'=>Recette::class
+            ]);
+        }
 }

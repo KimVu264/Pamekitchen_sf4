@@ -6,9 +6,13 @@ use App\Repository\RecetteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass=RecetteRepository::class)
+ *  @Vich\Uploadable
  */
 
 class Recette
@@ -70,10 +74,22 @@ class Recette
      */
     private $ustensiles;
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
-    //  */
-    // private $user;
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
+     */
+    private $user;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fileName;
+
+     /**
+      * @var File|null
+      * @Vich\UploadableField(mapping="recette_image", fileNameProperty="fileName")
+      */
+    private $imageFile;
 
     public function __construct()
     {
@@ -243,16 +259,81 @@ class Recette
         return $this;
     }
 
-    // public function getUser(): ?User
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    // public function getVideoFile(): ?VideoFile
     // {
-    //     return $this->user;
+    //     return $this->videoFile;
     // }
 
-    // public function setUser(?User $user): self
+    // public function setVideoFile(VideoFile $videoFile): self
     // {
-    //     $this->user = $user;
+    //     // set the owning side of the relation if necessary
+    //     if ($videoFile->getRecetteVideo() !== $this) {
+    //         $videoFile->setRecetteVideo($this);
+    //     }
+
+    //     $this->videoFile = $videoFile;
 
     //     return $this;
     // }
 
+
+    /**
+     * Get the value of fileName
+     *
+     * @return  string|null
+     */ 
+    public function getFileName()
+    {
+        return $this->fileName;
+    }
+
+    /**
+     * Set the value of fileName
+     *
+     * @param  string|null  $fileName
+     *
+     * @return  self
+     */ 
+    public function setFileName($fileName)
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+     /**
+      * Get the value of imageFile
+      *
+      * @return  File|null
+      */ 
+     public function getImageFile()
+     {
+          return $this->imageFile;
+     }
+
+     /**
+      * Set the value of imageFile
+      *
+      * @param  File|null  $imageFile
+      *
+      * @return  self
+      */ 
+     public function setImageFile($imageFile)
+     {
+          $this->imageFile = $imageFile;
+
+          return $this;
+     }
 }

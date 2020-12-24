@@ -16,7 +16,7 @@ class UstensileFormType extends AbstractType
     {
         $builder
             ->add('nom',TextType::class,[
-                'label'=>'Ustensile',
+                'label'=>'Ustensile :',
                 'constraints'=>[
                     new NotBlank(['message'=>'Le nom des ustensiles est manquant']),
                     new Length([
