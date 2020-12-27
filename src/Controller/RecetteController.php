@@ -32,6 +32,21 @@ class RecetteController extends AbstractController
     }
 
     /**
+     * @Route("/recette/{id<\d+>}", name="recette_page")
+     * Le FrameworkExtraBundle a installée le ParamConverter qui permet de convertir des paramètres de route en autre chose 
+     * Il est capable de convertir des paramètres en entités sans aucune configuration supplémentaire
+     */
+
+
+    public function recettePage(Recette $recette): Response
+    {
+        return $this->render('recette/recette_page.html.twig',[
+            'recette' => $recette
+        ]);
+    }
+
+
+    /**
      * @Route("/recette_search", name="recette_search")
      */
 

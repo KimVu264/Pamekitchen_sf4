@@ -11,10 +11,10 @@
             </div>          
             
             <div id="navbar"> 
-                <div class="container-1">
+                {# <div class="container-1">
                     <span class="icon_research"><i class="fas fa-search fa-xs"></i></span>
                     <input type="search" id="search" placeholder="Search..." />
-                </div>
+                </div> #}
 
                 <nav class="menuDesktop">
                    
@@ -27,7 +27,6 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{path ('admin_recette_add')}}">Ajouter une recette</a>
                             <a class="dropdown-item" href="#">Modifier une recette</a>
-                            <a class="dropdown-item" href="#">Supprimer une recette</a>
                         </div>
                     </div>
                     <!-- <a href="">Cours en ligne</a> -->
@@ -51,10 +50,9 @@
 
     {% block content %} 
 
-
     {% endblock %}
 
-     {% block javascripts %}
+    {% block javascripts %}
             <script>
                 $('.custom-file-input').on('change', function(event) {
                     var inputFile = event.currentTarget;
@@ -63,8 +61,7 @@
                         .html(inputFile.files[0].name);
                 });
             </script>
-        {% endblock %}
-
+    {% endblock %}
 
  {% endblock %}
 

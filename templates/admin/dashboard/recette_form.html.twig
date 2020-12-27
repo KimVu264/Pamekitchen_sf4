@@ -1,6 +1,6 @@
 
 
- {{form_start (recette_form)}}
+{{ form_start (recette_form) }}
 
   {#récupération du pseudo lors de la connexion#}
   {# {{form_row (recette_form.user, {label:'Pseudo :'}) }} #}
@@ -25,7 +25,9 @@
                 {{form_row (ingredients.quantite, {label:'Quantité en grammes :'}) }}
 
                 {{form_row (ingredients.nom, {label:'Ingrédient par unité :'}) }}  
-
+      
+      {% endfor %} 
+      
         <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
           data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
           data-index="{{ recette_form.ingredients|length }}">
@@ -67,5 +69,5 @@
       Enregistrer
     </button>
 
-{{form_end (recette_form)}}
+ {{ form_end (recette_form) }}
 

@@ -5,6 +5,7 @@
     <section id = "listRecettes" class= "dimension"> 
 
         <h2>Les dernières recettes irrésistibles </h2>
+       
         <div class= "flex">
             <div class = "recette_img">
                 <a href="">
@@ -40,7 +41,7 @@
             </div>
 
             <div class = "recette_img">
-                <a href="">
+                {# <a href="{{ path ('recette_page', {id: r.id})}}" class="has-text-primary"> #}
                     <img src="{{asset ('build/millefeuille.jpeg') }}" alt="mille-feuille passion ananas" style="width:100%;">
                 </a>    
                 <div class= "titre_recette">
