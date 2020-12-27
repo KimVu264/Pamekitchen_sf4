@@ -1,1 +1,64 @@
 {% extends "_template.html.twig" %}
+
+{% block content %}
+
+    <div class="dimension">
+
+        <h2> Recette: {{ recette_list|length }}</h2>
+      
+        <div class="container">
+
+         <div class="row align-items-start">      
+                <div class="col-8"> 
+                 {% for r in recette_list %}           
+                    <article class="media">
+                       
+                        <div class="media-body">
+                            <figure class="figure">
+                               <img src="{{asset ('uploads/' ~ r.brochure)}}" alt="Image" style="width: 300px; heigth: 300px">
+                            </figure>
+                        </div>
+                        <div class="media-body">
+                                <p>
+                                    <a href="{{ path ('recette', {id: r.id})}}" class="has-text-primary">
+                                        <strong>{{r.name}}</strong>
+                                    </a> <br>
+                                    {# On affiche uniquement les 50 premiers caractères de la description #}
+                                  
+                                </p>
+
+                                <p>  <b> Description: </b> {{ r.description|slice(0, 50) }}</p>
+
+                                <b>Ingrédients : </b> 
+
+                                {% for ingredient in r.ingredients %}                                        
+                                    <span> {{ ingredient.quantite}} {{ingredient.nom }}, </span>
+                                {% endfor %}
+
+                                <p> <b>Temps total </b>
+                                <i class="far fa-clock">:</i>                       
+                                 {{r.tpsTotal}} min </p>
+                         
+                        </div>
+
+
+                        {# 
+                         <div class="media-body">
+                        {% for ingredient in r.ingredients %}           
+                            <p>{{ ingredient.nom }}</p>
+                         {% endfor %}
+                          </div> #}
+
+                    
+
+                    </article>
+
+                     {% endfor %}
+                   
+                </div>
+                
+             </div>
+        
+        </div>
+    </div>
+{% endblock %}

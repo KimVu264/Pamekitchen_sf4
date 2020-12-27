@@ -10,15 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         // Récupérer les attributs de données
-        let prototype = addButton.dataset.prototype;
         let index = addButton.dataset.index;
-
+        let prototype = addButton.dataset.prototype;    
+        
+        
         // Créer un nouveau formulaire et MAJ index
-        let protoForm = document.createElement('div');
-        protoForm.innerHTML = prototype.replace(/__name__/g, index);
-        protoForm = protoForm.firstChild;
         addButton.dataset.index = index +1;
+        let protoForm = document.createElement('div');
+        protoForm.innerHTML = prototype.replace(index, /__name__/g);
+        protoForm = protoForm.firstChild;
+      
         console.log(protoForm);
+        document.getElementById('ingredient_list').appendChild(protoForm);
 
         //----------------------------------------------------------------------
         // Créér un custom formulaire 
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Ajoute le formulaire à la liste
         // addButton.closest('.field').appendChild(newForm);
-        document.getElementById('ingredient_list').appendChild(protoForm);
+       
     });
 });
 

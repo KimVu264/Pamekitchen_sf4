@@ -56,27 +56,32 @@ class RecetteFormType extends AbstractType
                 ]
             ])
             // ->add('video_file',FileType::class,[
-            //     'label'=> 'télécharger votre fichier',
+            //     'label'=> 'Please upload a file',
             //     'mapped'=>false,
             //     'required'=>false,
             //     'constraints'=>[
             //         new File([
-            //             'maxSize'=>'100Mo'
+            //             'maxSize'=>'1024k',
+            //             'mimeTypesMessage' => 'Please upload a valid document',                   
             //         ])
             //     ]
             // ])
+
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
                 'allow_add' => true,
+                'by_reference' => false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
                     ])
                 ]  
             ])
+
             ->add('ustensiles',CollectionType::class,[
                 'entry_type'=> UstensileFormType::class,
                 'allow_add' => true,
+                'by_reference' => false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
@@ -85,7 +90,25 @@ class RecetteFormType extends AbstractType
 
             ])
 
-            // ->add('user',TextType::class)
+            ->add('brochure', FileType::class, [
+                'label' => 'Please upload a file',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5G',
+                        'mimeTypes' => [
+                            'image/*',
+                            'video/*',
+                            'application/pdf',
+                            'application/x-pdf',
+                                                     
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid file',
+                    ])
+                ],
+            ])
+          
             
         ;
     }

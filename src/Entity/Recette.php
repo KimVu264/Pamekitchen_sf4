@@ -56,9 +56,14 @@ class Recette
     private $preparation;
 
     // /**
-    //  * @ORM\Column(type="string", length=255)
+    //  * @ORM\Column(type="string")
     //  */
     // private $video;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $brochure;
 
     /**
      * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recette", orphanRemoval=true, cascade={"persist"})
@@ -70,10 +75,10 @@ class Recette
      */
     private $ustensiles;
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
-    //  */
-    // private $user;
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -243,16 +248,36 @@ class Recette
         return $this;
     }
 
-    // public function getUser(): ?User
-    // {
-    //     return $this->user;
-    // }
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
 
-    // public function setUser(?User $user): self
-    // {
-    //     $this->user = $user;
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
+
+    /**
+     * Get the value of brochure
+     */ 
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    /**
+     * Set the value of brochure
+     *
+     * @return  self
+     */ 
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
+    }
 }
