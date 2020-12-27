@@ -15,10 +15,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     fields={"email"},
  *     message="This email already exists."
  * )
- * @UniqueEntity (
+ *  @UniqueEntity (
  *     fields={"pseudo"},
- *     message="This pseudo already exists"
+ *     message="This pseudo already exists."
  * )
+ * 
+ * 
  */
 class User implements UserInterface 
 {
@@ -53,7 +55,7 @@ class User implements UserInterface
     private $recettes;
 
     /**
-     * @ORM\Column(type="string", length=50, unique=true)
+     * @ORM\Column(type="string", length=50)
      * 
      */
     private $pseudo;

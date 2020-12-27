@@ -42,11 +42,13 @@ class RecetteFormType extends AbstractType
                     ])
                 ]
             ])
+
             ->add('nbr_pers',IntegerType::class,[
                 'constraints'=>[
                     new notBlank(['message'=>'Merci de renseigner le nombre de personnes pour cette recette'])
                 ]
             ])
+
             ->add('tps_total',IntegerType::class)
             ->add('tps_cuisson',IntegerType::class)
             ->add('tps_prepare',IntegerType::class)
@@ -113,11 +115,11 @@ class RecetteFormType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            // Configure your form options here
-            'data_class'=>Recette::class
-        ]);
-    }
+        public function configureOptions(OptionsResolver $resolver)
+        {
+            $resolver->setDefaults([
+                // Configure your form options here
+                'data_class'=>Recette::class
+            ]);
+        }
 }

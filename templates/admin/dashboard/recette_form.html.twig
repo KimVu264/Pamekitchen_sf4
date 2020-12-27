@@ -6,8 +6,14 @@
   {# {{form_row (recette_form.user, {label:'Pseudo :'}) }} #}
 
     {{form_row (recette_form.name,{label:'Nom de la recette :'}) }}
-            
+          {#récupération du pseudo lors de la connexion#}
 
+          {# {% for users in recette_form.users %}
+
+          {# {{form_row (recette_form.user, {label:'Pseudo :'}) }} #}
+
+          {#{% endfor %}  #}
+            
     {{form_row (recette_form.description, {label:'Description :'}) }}
 
     {{form_row (recette_form.nbr_pers, {label:'Nombre de personnes :'}) }}  
@@ -16,11 +22,9 @@
 
       {% for ingredients in recette_form.ingredients %}
 
-        {{form_row (ingredients.quantite, {label:'Quantités :'}) }}
+                {{form_row (ingredients.quantite, {label:'Quantité en grammes :'}) }}
 
-        {{form_row (ingredients.nom, {label:'Ingrédient :'}) }}  
-             
-      {% endfor %}     
+                {{form_row (ingredients.nom, {label:'Ingrédient par unité :'}) }}  
 
         <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
           data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
