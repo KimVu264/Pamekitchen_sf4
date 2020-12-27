@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Recette;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method Recette|null find($id, $lockMode = null, $lockVersion = null)
@@ -28,7 +29,6 @@ class RecetteRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -47,4 +47,18 @@ class RecetteRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findOneByRecette(Request $request)
+    {
+        $keyword= $request->get('searchName');
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.name LIKE :searchName')
+            ->setParameter('searchName', '%'.$keyword.'%')
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ; 
+
+    }
+
 }

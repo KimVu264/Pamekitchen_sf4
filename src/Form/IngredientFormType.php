@@ -15,7 +15,7 @@ class IngredientFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder       
             ->add('quantite',IntegerType::class,[
                 'label'=>'Quantité en grammes :',
                 'constraints'=>[

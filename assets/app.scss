@@ -20,10 +20,11 @@ h2{
     color: #7B91BC;
     font-size: 3rem !important;
     font-family : 'cookie','serif','Times New Roman';
-
 }
-.alert-danger {
-    width:80% !important; 
+
+.dropdown-menu {
+    background-color: #7B91BC; 
+
 }
 
 .dimension {
@@ -51,12 +52,14 @@ header {
     box-sizing: border-box;
 }
 
-#admin{
+#admin {
     background-color: #BFD2E1; 
     color: white; 
     box-sizing: border-box;
     height: auto; 
     overflow: hidden;
+    padding-bottom: 2%;
+
 }
 
 
@@ -71,6 +74,7 @@ header {
     border-radius: 15px;
     padding: 10px;
     box-sizing: border-box;
+    margin: 0 .2rem;
 }
 
 #menuResponsive {
@@ -110,9 +114,15 @@ header {
 }
 
 #navbar .menuDesktop a {
+     margin-top: 10%;
+
+}
+
+#navbar .menuDesktop a {
     text-decoration: none;
     color: white;
     padding-right: 20px;
+    // margin-top: 10%;
 }
 
 #navbar nav a:hover {
@@ -129,10 +139,16 @@ header {
 
 .container-1 .icon_research{
     position: absolute;
-    bottom: 20%;
-    left: 85%;
+    bottom: 17%;
+    left: 77%; 
     z-index: 1;
-    color: gray;
+    color: white;
+    background-color: #7B91BC;
+    width: 15%;
+    height: 64%;
+    cursor: pointer;
+    border: 1px solid gray;
+
   }
 
 .container-1 input#search {
@@ -140,8 +156,8 @@ header {
     line-height: 40px;
     background: #ffffff;
     border: none;
-    font-size: 10pt;
-    color: #63717f;
+    font-size: 12pt;
+    color: #083464;
     padding-left: 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -287,10 +303,10 @@ footer {
   
 }
 
-.form-control {
-    width : 50%;
-    margin: auto;
-}
+// .form-control {
+//     width : 50%;
+//     margin: auto;
+// }
 
 .button {
     margin-left: 70%;
@@ -304,17 +320,6 @@ footer {
     box-sizing: border-box;
     border:none;
 }
-
-form{
-    margin:auto;
-}
-
-.custom-file{
-    width: 50%;
-    margin-left:5%;
-}
-
-
 
 // #ingredient_list{
 //     display:flex;
@@ -614,7 +619,7 @@ form{
 /*---------------------------------------FORMULAIRE----------------------------------------------*/
 
 form{
-    width: 80%;
+    //  width: 80%;
     /* margin: 0 auto; */
     color: #FFFFFF;
     background-color:#BFD2E1;

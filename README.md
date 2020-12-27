@@ -66,3 +66,13 @@ $videoFilename = uniqid(time()) . '.' . $uploadedFile->getClientOriginalExtensio
 
 https://symfony.com/doc/current/reference/forms/types/collection.html
 
+https://symfony.com/doc/current/mailer.html
+
+->innerJoin('r.ingredients', 'i')
+
+
+
+
+
+
+

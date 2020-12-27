@@ -60,9 +60,14 @@ class Recette
     private $preparation;
 
     // /**
-    //  * @ORM\Column(type="string", length=255)
+    //  * @ORM\Column(type="string")
     //  */
     // private $video;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $brochure;
 
     /**
      * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recette", orphanRemoval=true, cascade={"persist"})
@@ -78,18 +83,6 @@ class Recette
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes")
      */
     private $user;
-
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", length=255)
-     */
-    private $fileName;
-
-     /**
-      * @var File|null
-      * @Vich\UploadableField(mapping="recette_image", fileNameProperty="fileName")
-      */
-    private $imageFile;
 
     public function __construct()
     {
@@ -272,25 +265,21 @@ class Recette
     }
 
     /**
-     * Get the value of fileName
-     *
-     * @return  string|null
+     * Get the value of brochure
      */ 
-    public function getFileName()
+    public function getBrochure()
     {
-        return $this->fileName;
+        return $this->brochure;
     }
 
     /**
-     * Set the value of fileName
-     *
-     * @param  string|null  $fileName
+     * Set the value of brochure
      *
      * @return  self
      */ 
-    public function setFileName($fileName)
+    public function setBrochure($brochure)
     {
-        $this->fileName = $fileName;
+        $this->brochure = $brochure;
 
         return $this;
     }

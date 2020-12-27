@@ -1,13 +1,14 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+
  <header>
         <div id="menu">
             <div class="logo">
                 <a href="{{path ('home')}}"><img id = "logo_img" src="{{asset ('build/logo_new_pamekitchen.png')}} " alt="pamekitchen patisserie">
                 </a>
             {% if app.user %}   
-                <a class="button is-primary is-small" href="#">
+                <a class="connexion" href="#">
                     <strong>{{ app.user.pseudo }}</strong>
                 </a>
 
@@ -31,10 +32,10 @@
 
             </div>          
             <div id="navbar"> 
-                <div class="container-1">
-                    <span class="icon_research"><i class="fas fa-search fa-xs"></i></span>
+                <form class="container-1" >               
                     <input type="search" id="search" placeholder="Search..." />
-                </div>
+                    <button type="submit" class="icon_research"><i class="fas fa-search fa-xs"></i></button>
+                </form>
                 <nav class="menuDesktop">
                     <a href="{{path ('home')}}">Accueil</a>
                     <a href=" {{ path ('recette')}}">Recettes</a>
@@ -42,8 +43,8 @@
                     <a href="{{ path ('contact')}}">Qui sommes-nous ? </a>
                 </nav>
         {#---------------------- Menu responsive--------------------------------------------#}
-               <div class= "menu_burger"> 
-                   <i id="icon_burger" class="fas fa-bars"></i>                           
+                <div class= "menu_burger"> 
+                    <i id="icon_burger" class="fas fa-bars"></i>                           
                     <ul id="menuResponsive"> 
                         <li><a href="connexion.php">Connexion </a> </li>
                         <li><a href="index.php">Accueil</a> </li>
@@ -51,7 +52,7 @@
                         <!-- <li> <a href="">Cours en ligne </a></li> -->
                         <li> <a href="qui_sommes_nous.php">Qui sommes-nous ? </a></li>
                     </ul>
-               </div>
+                </div>
             </div>
         </div> 
 

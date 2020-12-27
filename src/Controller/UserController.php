@@ -42,12 +42,16 @@ class UserController extends AbstractController
             $user =$form->getData();
             $plainPassword = $form->get('password')->getData();
             $user->setPassword($encoder->encodePassword($user, $plainPassword));
-            
-        
+                   
             //Enregistrement en base de données
             $manager->persist($user);
             $manager->flush(); 
 
+            $this->addFlash('success','Votre compte a été enregistré.');
+            return $this->render('user/index.html.twig', [
+              'user_form' => $form->createView(),
+            ]);
+            
         }
 
         return $this->render('user/index.html.twig', [
