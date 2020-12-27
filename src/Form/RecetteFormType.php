@@ -59,21 +59,14 @@ class RecetteFormType extends AbstractType
             ])
             ->add('imageFile',FileType::class,[
                 'required'=>false,
+                // 'mapped'=>false
                 // 'placeholder'=>'blabla'
             ])
-
-            
-
-                // ->add('recette_video', CollectionType::class, [
-                //     'entry_type' => ProductImageType::class,
-                //     'allow_add' => true,
-                //     'allow_delete' => true,
-                //     'prototype' => true
-                // ])
         
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
                 'allow_add' => true,
+                'allow_delete' => true,
                 'by_reference'=>false,
                 'constraints'=>[
                     new Count([

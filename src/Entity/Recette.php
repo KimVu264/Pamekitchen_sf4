@@ -271,24 +271,6 @@ class Recette
         return $this;
     }
 
-    // public function getVideoFile(): ?VideoFile
-    // {
-    //     return $this->videoFile;
-    // }
-
-    // public function setVideoFile(VideoFile $videoFile): self
-    // {
-    //     // set the owning side of the relation if necessary
-    //     if ($videoFile->getRecetteVideo() !== $this) {
-    //         $videoFile->setRecetteVideo($this);
-    //     }
-
-    //     $this->videoFile = $videoFile;
-
-    //     return $this;
-    // }
-
-
     /**
      * Get the value of fileName
      *
@@ -336,4 +318,5 @@ class Recette
 
           return $this;
      }
+    
 }

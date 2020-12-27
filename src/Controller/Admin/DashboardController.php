@@ -57,7 +57,7 @@ class DashboardController extends AbstractController
 
               //4.Récupérer les data du formulaire
               $recette = $form->getData();
-            //   $videoFile=$form->get('video_file')->getData();
+            //   $videoFile=$form->get('fileName')->getData();
 
             //   if($videoFile){
             //       $originalFilename = pathinfo($videoFile->getClientOriginalName(),PATHINFO_FILENAME);
@@ -83,12 +83,12 @@ class DashboardController extends AbstractController
 
 
 
-                //   //ajout d'un message flash
-                //   $this->addFlash('success','Le nouvel artiste a été enregistré.');
-                // return $this->render('home/contact.html.twig');
-                return $this->render('admin/dashboard/index.html.twig',[
-                  'recette_form'=>$form->createView()
-                  ]);
+                  //ajout d'un message flash
+                  // $this->addFlash('success','la nouvelle recette a été enregistrée.');
+                  return $this->render('home/contact.html.twig');
+                // return $this->render('admin/dashboard/index.html.twig',[
+                //   'recette_form'=>$form->createView()
+                //   ]);
             }
 
 
@@ -98,6 +98,8 @@ class DashboardController extends AbstractController
                 ]);
         
     }
+
+
     
     
 }

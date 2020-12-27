@@ -50,7 +50,7 @@
                     <td>{{ recette.tps_total }}</td>
                     <td>{{ recette.tps_prepare }}</td>
                     <td>{{ recette.tps_cuisson }}</td>
-                    <td>{{ recette.video }}</td>
+                    <td>{{ recette.fileName }}</td>
                     <td>{{ recette.preparation }}</td>
                     <td>
                         <a href="#" class="button is-small is-success">
@@ -61,6 +61,8 @@
                         </a>
                     </td>
                 </tr>
+
+                <img src="{{ vich_uploader_asset(fileName, 'imageFile')  }}" alt="Image">
             {% endfor %}
             
             </tbody>
