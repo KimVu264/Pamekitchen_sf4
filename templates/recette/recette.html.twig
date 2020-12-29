@@ -16,7 +16,7 @@
                         <div class="recette_img">
                     
                             <a href="{{path ('recette_page', {id: recette.id})}}">
-                                <img src="{{asset ('/uploads/' ~ recette.brochure)}}" alt="{{recette.name}}" style="width:100%;">
+                                <img src="{{asset ('images/recettes/' ~ recette.fileName)}}" alt="image" style="width:100%;">
                             </a>
                             <div class= "titre_recette">
                                 <a href="{{path ('recette_page', {id: recette.id})}}">{{recette.name}}</a>

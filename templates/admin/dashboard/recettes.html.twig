@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="section">
+    <div class="dimension">
         <h1 class="title">Recettes: {{ recettes|length }}</h1>
 
 
@@ -62,7 +62,7 @@
                     <td><img src="{{asset ('images/recettes/' ~ recette.fileName)}}" alt="Image" style="width: 100px; heigth:100px"></td>
                     
                     
-                    <td>{{ recette.preparation }}</td>
+                    <td>{{ recette.preparation|slice(0, 25) }}</td>
                     <td>
                         <a href="{{path ('admin_recette_edit',{id:recette.id}) }}" class="button is-small is-success">
                             <i class="fas fa-edit"></i>

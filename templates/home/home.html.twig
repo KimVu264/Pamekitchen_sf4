@@ -19,7 +19,7 @@
             <div id="carte" class="float"> 
               {% for cat in categories %}
                 <div class="cards" >               
-                    <img src= "{{asset ('uploads/' ~ cat.brochure)}}" class="card-img-top" alt="{{cat.name}}">
+                    <img src= "{{asset ('images/recettes/' ~ cat.fileName)}}" class="card-img-top" alt="{{cat.name}}">
                     <div class="card-body">
                         <h5 class="card-title">{{cat.category}}</h5>
                         <p class="card-text">

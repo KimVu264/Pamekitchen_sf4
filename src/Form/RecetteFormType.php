@@ -69,6 +69,20 @@ class RecetteFormType extends AbstractType
             ])
             ->add('imageFile',FileType::class,[
                 'required'=>false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '8M',
+                        'mimeTypes' => [
+                            'image/*',
+                            'video/*',
+                            'application/pdf',
+                            'application/x-pdf',
+                                                     
+                        ],
+                        'mimeTypesMessage' => 'Merci de uploader un fichier valid ',
+                    ])
+                ],
+
                 // 'mapped'=>false
                 // 'placeholder'=>'blabla'
             ])

@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Ingredient;
-use App\Entity\User;
 use App\Entity\Recette;
 use App\Entity\Ustensile;
 use App\Form\ConfirmType;
@@ -14,8 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 /** 
  * Définition de préfixes de routes (préfixes d'URL et de nom):
@@ -36,7 +34,7 @@ class DashboardController extends AbstractController
     }
 
      /**
-     * @Route("/recette/add", name="recette_add")
+     * @Route("/dashboard", name="dashboard")
      * 
      */
    
@@ -48,8 +46,7 @@ class DashboardController extends AbstractController
            ->addUstensile(new Ustensile)
            ->setUser($this->getUser())
             );
-           
-           
+                
 
            //2.Passage de la requête au formulaire (récupération des données POST, validation)
            $form->handleRequest($request);
@@ -60,24 +57,6 @@ class DashboardController extends AbstractController
               //4.Récupérer les data du formulaire
               $recette = $form->getData();
               // $videoFile=$form->get('imagefile')->getData();
-
-              // if($videoFile){
-              //     $originalFilename = pathinfo($videoFile->getClientOriginalName(),PATHINFO_FILENAME);
-              //     $safeFilename = $slugger->slug($originalFilename);
-              //     $newFilename = $safeFilename.'-'.uniqid().'.'.$videoFile->guessExtension();
-
-              //     try {
-              //         $videoFile->move(
-              //             $this->getParameter('images/recette_directory'),
-              //             $newFilename
-              //         );
-              //     } catch(FileException $e){
-
-              //       }
-                    
-              //       $videoFile->setVideoFilename($newFilename);
-              // }
-              
 
               //enregistrement en BDD
               $manager->persist($recette);
@@ -110,6 +89,7 @@ class DashboardController extends AbstractController
      {
         return $this->render('admin/dashboard/recettes.html.twig',[
             'recettes'=> $recetteRepository->findAll(),
+            
         ]);
      }
 
@@ -161,7 +141,12 @@ class DashboardController extends AbstractController
             //pas d'appel à $manager->persist(): l'entité est déjà connue de l'EntityManager
 
             $manager->flush();
-            $this->addFlash('success', 'La recette a étè modifiée.');
+            $this->addFlash('success', 'La recette a été modifiée.');
+            
+         return $this->render('admin/dashboard/recette_edit.html.twig',[
+            'recette'=>$recette,
+            'recette_form'=> $form->createView(),
+        ]);
 
         }
 
