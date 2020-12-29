@@ -4,7 +4,7 @@
 
     <div class="dimension">
 
-        <h2> Recette: {{ recette_list|length }}</h2>
+        <h2> Nombre de recettes: {{ recette_list|length }}</h2>
       
         <div class="container">
 
@@ -20,7 +20,7 @@
                         </div>
                         <div class="media-body">
                                 <p>
-                                    <a href="{{ path ('recette', {id: r.id})}}" class="has-text-primary">
+                                    <a href="{{ path ('recette_page', {id: r.id})}}" class="has-text-primary">
                                         <strong>{{r.name}}</strong>
                                     </a> <br>
                                     {# On affiche uniquement les 50 premiers caractères de la description #}
@@ -40,16 +40,6 @@
                                  {{r.tpsTotal}} min </p>
                          
                         </div>
-
-
-                        {# 
-                         <div class="media-body">
-                        {% for ingredient in r.ingredients %}           
-                            <p>{{ ingredient.nom }}</p>
-                         {% endfor %}
-                          </div> #}
-
-                    
 
                     </article>
 

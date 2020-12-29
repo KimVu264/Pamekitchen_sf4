@@ -59,15 +59,16 @@ class Recette
      */
     private $preparation;
 
-    // /**
-    //  * @ORM\Column(type="string")
-    //  */
-    // private $video;
-
     /**
      * @ORM\Column(type="string")
      */
     private $brochure;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $category;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recette", orphanRemoval=true, cascade={"persist"})
@@ -180,18 +181,6 @@ class Recette
         return $this;
     }
 
-    // public function getVideo(): ?string
-    // {
-    //     return $this->video;
-    // }
-
-    // public function setVideo(string $video): self
-    // {
-    //     $this->video = $video;
-
-    //     return $this;
-    // }
-
     /**
      * @return Collection|Ingredient[]
      */
@@ -264,7 +253,6 @@ class Recette
         return $this;
     }
 
-
     /**
      * Get the value of brochure
      */ 
@@ -281,6 +269,27 @@ class Recette
     public function setBrochure($brochure)
     {
         $this->brochure = $brochure;
+
+        return $this;
+    }
+    
+
+    /**
+     * Get the value of category
+     */ 
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory($category)
+    {
+        $this->category = $category;
 
         return $this;
     }

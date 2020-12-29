@@ -3,11 +3,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Overlock&display=swap");
 
-// @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-
-@import "~bulma";
 
 * {
 	margin: 0;
@@ -27,6 +25,10 @@ h2{
 .dropdown-menu {
     background-color: #7B91BC; 
 
+}
+
+.table {
+    width: 50%;
 }
 
 .dimension {
@@ -63,7 +65,6 @@ header {
     padding-bottom: 2%;
 
 }
-
 
 .logo {
     float: left;
@@ -116,11 +117,6 @@ header {
 }
 
 #navbar .menuDesktop a {
-     margin-top: 10%;
-
-}
-
-#navbar .menuDesktop a {
     text-decoration: none;
     color: white;
     padding-right: 20px;
@@ -130,42 +126,6 @@ header {
 #navbar nav a:hover {
     color: plum;
 }
-
-.container-1{
-    width: 300px;
-    vertical-align: middle;
-    white-space: nowrap;
-    position: relative;
-
-  }
-
-.container-1 .icon_research{
-    position: absolute;
-    bottom: 17%;
-    left: 77%; 
-    z-index: 1;
-    color: white;
-    background-color: #7B91BC;
-    width: 15%;
-    height: 64%;
-    cursor: pointer;
-    border: 1px solid gray;
-
-  }
-
-.container-1 input#search {
-    width: 90%;
-    line-height: 40px;
-    background: #ffffff;
-    border: none;
-    font-size: 12pt;
-    color: #083464;
-    padding-left: 20px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
 
 .textes {
     width: 60%;   
@@ -246,8 +206,8 @@ header .plus {
 
 #container a {
     color:#FFFFFF;
-    background-color: #BFD2E1;  
-    font-size: 1.5em; 
+    background-color: #7B91BC;  
+    font-size: 1em; 
     border-radius: 22px;
     text-decoration: none;
     padding: 2%; 
@@ -276,9 +236,9 @@ header .plus {
     font-family: 'overlock', 'times', 'serif';   
 }
 
-.btn-primary {
-    background-color: #BFD2E1 !important;
-    border :1px solid #BFD2E1 !important;
+.btn-info {
+    background-color: #7B91BC !important;
+    border :1px solid #7B91BC !important;
 }
 
 footer {
@@ -304,11 +264,6 @@ footer {
     color: white; 
   
 }
-
-// .form-control {
-//     width : 50%;
-//     margin: auto;
-// }
 
 .button {
     margin-left: 70%;
@@ -479,10 +434,11 @@ footer {
 }
 
 .recette_img {
-    width: 50%;
+    width: 100%;
     flex: auto; 
     text-align: center;
     padding: 0 2rem;
+    margin: 0.7rem;
 
 }
 
@@ -496,36 +452,24 @@ footer {
     padding: 10px 20px;
 }
 
-#video_youtube {
-    margin: 20px auto; 
-    text-align: center; 
-}
-
-#video_youtube iframe {
-    width: 70%;
-    height: 300px;
-    border: 0
-}
 .separated {
     border: 2px dashed red;
     width: 50%;
-    margin: 10px auto 20px;
+    margin: 0.7rem auto;
 
 }
 
-#topRecherche {
-    display: flex;
-    margin: 1rem 2rem;
-    color: #7B91BC;
-}
-
-.plusRecherche {
-    flex: auto;    
+.top_recette{
+    text-align: center;
 }
 
 .titleRecettes p a {
+    border: 1px solid #7B91BC ;
+    border-width: 50%;
+    text-align: center;
+    background-color:#7B91BC ;
     text-decoration: none;
-    color: #7B91BC;
+    color: white;
 }
 
 
@@ -620,7 +564,7 @@ footer {
 
 /*---------------------------------------FORMULAIRE----------------------------------------------*/
 
-form{
+form {
     //  width: 80%;
     /* margin: 0 auto; */
     color: #FFFFFF;

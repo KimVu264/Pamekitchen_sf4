@@ -36,7 +36,7 @@
                <div class= "menu_burger"> 
                    <i id="icon_burger" class="fas fa-bars"></i>                           
                     <ul id="menuResponsive"> 
-                        <li><a href="connexion.php">Connexion </a> </li>
+                        <li><a href="connexion.php">Déconnexion </a> </li>
                         <li><a href="index.php">Accueil</a> </li>
                         <li><a href="recette.php">Recettes </a> </li>
                         <!-- <li> <a href="">Cours en ligne </a></li> -->
@@ -46,10 +46,9 @@
             </div>
         </div> 
 
-    </section>
-
-    {% block content %} 
-
+     </section> 
+        
+    {% block content %}
     {% endblock %}
 
     {% block javascripts %}
@@ -62,6 +61,8 @@
                 });
             </script>
     {% endblock %}
+    
+    {% endblock %}
 
- {% endblock %}
+
 

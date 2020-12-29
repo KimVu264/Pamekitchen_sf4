@@ -1,0 +1,55 @@
+{% extends "_template.html.twig" %}
+
+{% block content %}
+
+<div class="dimension">
+
+   <h2>Résultats de recherche: {{results|length}} </h2>
+
+   <div class="container">
+
+         <div class="row align-items-start">      
+                <div class="col-8"> 
+                   {% for result in results %}        
+                    <article class="media">                    
+                        <div class="media-body">
+                            <figure class="figure">
+                               <img src="{{asset ('uploads/' ~ result.brochure)}}" alt="Image" style="width: 300px; heigth: 300px">
+                            </figure>
+                        </div>
+                        <div class="media-body">
+                                <p>
+                                    <a href="{{ path ('recette_page', {id: result.id})}}" class="has-text-primary">
+                                        <strong>{{result.name}}</strong>
+                                    </a> <br>
+                                    {# On affiche uniquement les 50 premiers caractères de la description #}
+                                  
+                                </p>
+
+                                <p>  <b> Description: </b> {{ result.description|slice(0, 50) }}</p>
+
+                                <b>Ingrédients : </b> 
+
+                                {% for ingredient in result.ingredients %}                                        
+                                    <span> {{ ingredient.quantite}} {{ingredient.nom }}, </span>
+                                {% endfor %}
+
+                                <p> <b>Temps total </b>
+                                <i class="far fa-clock">:</i>                       
+                                 {{result.tpsTotal}} min </p>
+                         
+                        </div>
+                  
+                    </article>
+
+                     {% endfor %}
+                   
+                </div>
+                
+             </div>
+        
+        </div>
+
+</div>
+
+{% endblock %}

@@ -48,17 +48,25 @@ class RecetteRepository extends ServiceEntityRepository
     }
     */
 
-    public function findOneByRecette(Request $request)
+    public function search($keyword)
     {
-        $keyword= $request->get('searchName');
+        // $keyword= $request->get('searchName');
         return $this->createQueryBuilder('r')
             ->andWhere('r.name LIKE :searchName')
             ->setParameter('searchName', '%'.$keyword.'%')
-            ->orderBy('r.id', 'ASC')
+            ->orderBy('r.id', 'ASC')            
             ->getQuery()
-            ->getResult()
-            ; 
+            ->getResult();
 
+    }
+
+    public function category()
+    {
+        return $this->createQueryBuilder('r') 
+            ->groupBy('r.category') 
+            ->setMaxResults(3) 
+            ->getQuery()
+            ->getResult();
     }
 
 }

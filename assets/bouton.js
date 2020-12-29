@@ -23,48 +23,38 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(protoForm);
         document.getElementById('ingredient_list').appendChild(protoForm);
 
-        //----------------------------------------------------------------------
-        // Créér un custom formulaire 
-
-        // // Main column: quantité
-        // let primaryColumn = document.createElement('div');
-        // primaryColumn.classList.add('column');
-        // primaryColumn.appendChild(protoForm.querySelector('div.field:nth-child(2)').cloneNode(true));
-        
-
-        // // Secondary column: ingrédients
-        // let secondaryColumn = document.createElement('div');
-        // secondaryColumn.classList.add('column', 'is-two-fifths');
-        // secondaryColumn.appendChild(protoForm.querySelector('div.field:nth-child(1)').cloneNode(true));
-       
-
         // Champs du conteneur
-        // let mediaContent = document.createElement('div');
-        // mediaContent.classList.add('media-content');
+        let mediaContent = document.createElement('div');
+        mediaContent.classList.add('media-content');
 
-        // // Delete button
-        // mediaContent.innerHTML = `
-        // <button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".ingredient">
-        //     <span class="icon"><i class="fal fa-times"></i></span>
-        // </button>
-        // <div class="columns"></div>`;
+        //----------------------------------------------------------------------
+        // Delete button
+        console.log('666');
+        mediaContent.innerHTML = `<button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".recette_form">
+            <span class="icon"><i class="fal fa-times"></i></span>
+        </button>
+        <div class="columns"></div>; `
 
-        // mediaContent.querySelector('button').addEventListener('click', function (e) {
-        //     e.preventDefault();
-        //     let item = mediaContent.querySelector('button').closest(mediaContent.querySelector('button').dataset.formIngredient);
+        console.log('77');
 
-        //     if (item !== null) {
-        //         item.remove();
-        //     }
-        // });
+        mediaContent.querySelector('button').addEventListener('click', function (e) {
+            e.preventDefault();
+            let item = mediaContent.querySelector('button').closest(mediaContent.querySelector('button').dataset.recette_form);
 
-        // mediaContent.querySelector('.columns').appendChild(primaryColumn);
-        // mediaContent.querySelector('.columns').appendChild(secondaryColumn);
+            if (item !== null) {
+                item.remove();
+            }
+        });
 
-        // // Conteneur principal
-        // let newForm = document.createElement('div');
-        // newForm.classList.add('media', 'ingredient');
-        // newForm.appendChild(mediaContent);
+        console.log('888');
+
+        // mediaContent.querySelector('.columns').appendChild(quantite);
+        // mediaContent.querySelector('.columns').appendChild(nom);
+
+        // Conteneur principal
+        let newForm = document.createElement('div');
+        newForm.classList.add('media', 'ingredient');
+        newForm.appendChild(mediaContent);
 
         //----------------------------------------------------------------------
 

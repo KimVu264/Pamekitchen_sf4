@@ -1,8 +1,7 @@
 {% extends "_template.html.twig" %}
 
 {% block content %}
-
-    
+   
     <section id="grosse_div" class= "dimension">   
 
         <div id='container'>
@@ -14,44 +13,23 @@
             </span>
         
             <br><br>
-            <a href="{{ path ('recette_list')}}" >Plus de recettes</a>
+            <a href="{{ path ('recette_list')}}" >Voir toutes les recettes</a>
         </div>
 
-        
-        <div id="carte" class="float"> 
-
-            <div class="cards" >
-                <img src= "{{asset ('build/chocolate-cake.jpg')}}" class="card-img-top" alt="photo de gateau chocolat">
-                <div class="card-body">
-                    <h5 class="card-title">Gâteaux</h5>
-                    <p class="card-text">
-                        Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries
-                        </p>  
-                    <a href="#" class="btn btn-primary">Miam</a>
+            <div id="carte" class="float"> 
+              {% for cat in categories %}
+                <div class="cards" >               
+                    <img src= "{{asset ('uploads/' ~ cat.brochure)}}" class="card-img-top" alt="{{cat.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{cat.category}}</h5>
+                        <p class="card-text">
+                            Apprenez à préparer vos délicieuses {{cat.category}}.
+                        </p>
+                        <a href="{{path ('recette_cat', {id: cat.id}) }}" class="btn btn-info">Découvrez</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="cards">
-                <img src="{{ asset ('build/viennoiseries.jpg') }}" class="card-img-top" alt="photo de viennoiseries">
-                <div class="card-body">
-                    <h5 class="card-title">Viennoiseries</h5>
-                    <p class="card-text">
-                        Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries
-                    </p>
-                    <a href="#" class="btn btn-primary">Miam</a>
-                </div>
-            </div>
-
-            <div class="cards">
-                <img src="{{ asset ('build/macaron_fraise.jpg') }}" class="card-img-top" alt="photo de macarons">
-                <div class="card-body">
-                    <h5 class="card-title">Macarons</h5>
-                    <p class="card-text">Apprenez à préparer vos délicieuses viennoiseries.Apprenez à préparer vos délicieuses viennoiseries</p>
-                    <a href="#" class="btn btn-primary">Miam</a>
-                </div>
-            </div>
-        </div>
-        <div class ="clear"></div>
+               {% endfor %}
+            </div> 
     </section>  
    
 {% endblock %}

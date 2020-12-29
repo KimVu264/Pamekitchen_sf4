@@ -17,11 +17,11 @@
                 </a>
 
             {% else %}
-                {# <a class="button is-primary is-small" href="#">
+                <a class="connexion" href="{{path ('user')}}">
                     <strong>Inscription</strong>
-                </a> #}
+                </a>
                 <a class="connexion" href="{{ path ('app_login') }}">
-                    Connexion
+                    <strong> Connexion </strong>
                 </a>  
 
             {% endif %}     
@@ -32,11 +32,13 @@
 
             </div>          
             <div id="navbar"> 
-                <div class="container-1" >     
-                    {# <input type="search" id="search" placeholder="Search..." />
-                    <button type="submit" class="icon_research"><i class="fas fa-search fa-xs"></i></button> #}
-                </div>
+
                 <nav class="menuDesktop">
+                    <form action="{{path ('search')}}" method="get" class="form-inline">
+                        <input type="search" class="form-control col-8" placeholder="Je cherche une recette..."  aria-label="Search" name="search" value="{{app.request.query.get('search')}}" />
+                        <button type="submit" class="btn btn-info"><i class="fas fa-search fa-xs"></i></button>
+                    </form>          
+
                     <a href="{{path ('home')}}">Accueil</a>
                     <a href=" {{ path ('recette')}}">Recettes</a>
                     <!-- <a href="">Cours en ligne</a> -->
@@ -46,11 +48,11 @@
                 <div class= "menu_burger"> 
                     <i id="icon_burger" class="fas fa-bars"></i>                           
                     <ul id="menuResponsive"> 
-                        <li><a href="connexion.php">Connexion </a> </li>
-                        <li><a href="index.php">Accueil</a> </li>
-                        <li><a href="recette.php">Recettes </a> </li>
+                        <li><a href="{{path ('app_login')}}">Connexion </a> </li>
+                        <li><a href="{{path ('home')}}">Accueil</a> </li>
+                        <li><a href="{{path ('recette')}}">Recettes </a> </li>
                         <!-- <li> <a href="">Cours en ligne </a></li> -->
-                        <li> <a href="qui_sommes_nous.php">Qui sommes-nous ? </a></li>
+                        <li> <a href="{{path ('contact')}}">Qui sommes-nous ? </a></li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +73,7 @@
             </div>    
 
             <div class ="carousel">
-                <img id = "img_switch" src= "{{ asset ('build/macaron.jpg') }}" alt="photos_gateaux">    
+                <img id = "img_switch" src= "{{ asset ('/build/macaron.jpg') }}" alt="photos_gateaux">    
             </div>  
         </div>
      
@@ -92,11 +94,12 @@
             </ul>
         </div>
         <div class = plus>
-             <a id="plus_infos"  href ="qui_sommes_nous.php">Plus d'infos...</a> 
+             <a id="plus_infos"  href ="{{path ('contact')}}">Plus d'infos...</a> 
         </div>
     </header>
 
     {% block content %}
+
     {% endblock %}
 
     <footer>
@@ -109,6 +112,6 @@
                 <a href ="{{path ('mentions') }}"> Mentions légales</a>
             </span>
     </footer>
-    {# <div class ="clear"></div> #}
+ 
 
 {% endblock %}

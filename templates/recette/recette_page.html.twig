@@ -2,20 +2,50 @@
 
 {% block content %}
     <div class="dimension">
-        <h2> Recette: {{ recette.name }}</h2>
-
+     
+        <h2>{{ recette.name }}</h2>
+                 
         <div class="media-body">
-                            <figure class="figure">
-                               <img src="{{asset ('uploads/' ~ recette.brochure)}}" alt="Image" style="width: 300px; heigth: 300px">
-                            </figure>
-                        </div>
-            <p>{{ recette.description }}</p>
+                <figure class="figure">
+                     <img src="{{asset ('uploads/' ~ recette.brochure)}}" alt="Image" class="card-img-top">
+                </figure>
         </div>
 
-        <h3 class="subtitle">
-            {# Albums: {{ artist.records|length }} #}
-        </h3>
-        {# {% include 'record/_record_list.html.twig' with {record_list: artist.records} %} #}
+        <div class="media-body">
+            <p>{{ recette.description }}</p>
+
+            <p>Recette pour {{ recette.nbrPers }} personnes</p> 
+
+            <b> Ingrédients: </b>
+            {% for ingredient in recette.ingredients %}
+                <span> {{ ingredient.quantite }} {{ ingredient.nom }}, </span>
+            {% endfor %} 
+            <br>
+
+            <b> Ustensiles: </b>
+            {% for ustensile in recette.ustensiles %}
+                <span>  {{ ustensile.nom }}, </span>
+            {% endfor %}
+
+            <p> <b>Temps total </b>
+                <i class="far fa-clock">:</i>                       
+                    {{recette.tpsTotal}} min                    
+            </p>
+
+             <p> <b>Temps de préparation </b>
+                <i class="far fa-clock">:</i>                       
+                    {{recette.tpsPrepare}} min                    
+            </p>
+
+             <p> <b>Temps de cuisson </b>
+                <i class="far fa-clock">:</i>                       
+                    {{recette.tpsCuisson}} min                    
+            </p>
+            <p> <b>Les étapes à préparer: </b> {{ recette.preparation }}</p>
+        </div>
     
-    </div>
+   </div>
+     
 {% endblock %}
+
+ 

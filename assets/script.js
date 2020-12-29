@@ -26,9 +26,9 @@ setInterval(randomquotes, 15000);
 var img_switch = document.getElementById ('img_switch'); 
 
 var images = [
-                "build/macaron.jpg",
-                "build/gateaux_cerise.jpg",
-                "build/yaourt_framboise.jpg"
+                "/build/macaron.jpg",
+                "/build/gateaux_cerise.jpg",
+                "/build/yaourt_framboise.jpg"
             ]; 
 
     console.log(images); 

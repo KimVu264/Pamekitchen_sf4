@@ -20,7 +20,7 @@ final class Version20201224091519 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE recette ADD file_name VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE recette ADD brochure VARCHAR(255) NOT NULL');
         $this->addSql('DROP INDEX UNIQ_8D93D64986CC499D ON user');
     }
 

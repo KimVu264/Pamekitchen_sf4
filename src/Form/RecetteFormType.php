@@ -33,6 +33,16 @@ class RecetteFormType extends AbstractType
 
                 ]
             ])
+            ->add('category',TextType::class,[
+                'constraints'=>[
+                    new notBlank(['message'=>'La catégorie de la recette est manquant']),
+                    new Length([
+                        'max'=>50,
+                        'maxMessage'=>'Le nom de la catégorie ne peut comporter plus de {{limit}} caractères.'
+                    ])
+
+                ]
+            ])
             ->add('description',TextType::class,[
                 'constraints'=>[
                     new notBlank(['message'=>'Merci de mettre une brève description de votre recette ']),
@@ -57,17 +67,6 @@ class RecetteFormType extends AbstractType
                     new notBlank(['message'=>'Merci de remplir les étapes de votre recette'])
                 ]
             ])
-            // ->add('video_file',FileType::class,[
-            //     'label'=> 'Please upload a file',
-            //     'mapped'=>false,
-            //     'required'=>false,
-            //     'constraints'=>[
-            //         new File([
-            //             'maxSize'=>'1024k',
-            //             'mimeTypesMessage' => 'Please upload a valid document',                   
-            //         ])
-            //     ]
-            // ])
 
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
@@ -93,7 +92,7 @@ class RecetteFormType extends AbstractType
             ])
 
             ->add('brochure', FileType::class, [
-                'label' => 'Please upload a file',
+                'label' => 'Merci de uploader un fichier',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -106,7 +105,7 @@ class RecetteFormType extends AbstractType
                             'application/x-pdf',
                                                      
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid file',
+                        'mimeTypesMessage' => 'Merci de uploader un fichier valid ',
                     ])
                 ],
             ])

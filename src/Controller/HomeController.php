@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Ingredient;
-use App\Entity\Recette;
-use App\Entity\Ustensile;
-use App\Form\RecetteFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\RecetteRepository;
+use Doctrine\ORM\Query\Expr\GroupBy;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,9 +14,12 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(Request $request,RecetteRepository $recetteRepository): Response
     {
-        return $this->render('home/home.html.twig');
+        $cate=$request->query->get('category');
+        $data=$recetteRepository->category($cate); 
+        //dd($data);
+        return $this->render('home/home.html.twig', ['categories' => $data]);      
         
     }
 

@@ -1,17 +1,20 @@
-{% extends "admin/_templateadmin.html.twig" %}
+{% extends "/admin/_templateadmin.html.twig" %}
 
-{% block title %}
 
-    Back-office
+    {% block title %}
 
-{% endblock  %}
+        Back-office
 
-{%  block content %}
+    {% endblock  %}
 
-    <div class="section">
-        <h1 class="title">Back-office</h1>
-    </div>
+    {%  block content %}
 
-    {# {% include "admin/dashboard/recette_form.html.twig" %} #}
+        {# {% include "includes/flash.html.twig" %}     #}
 
- {% endblock %}
+        <div class="section">
+            <h1 class="title">Back-office</h1>
+        </div>
+
+        {# {% include "/admin/dashboard/recette_form.html.twig" %} #}
+
+    {% endblock %}

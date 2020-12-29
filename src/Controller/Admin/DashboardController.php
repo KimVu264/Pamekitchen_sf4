@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Entity\Ingredient;
 use App\Entity\Recette;
 use App\Entity\Ustensile;
@@ -14,8 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\File;
-
 
 /** 
  * Définition de préfixes de routes (préfixes d'URL et de nom):
@@ -37,6 +34,7 @@ class DashboardController extends AbstractController
 
      /**
      * @Route("/recette/add", name="recette_add")
+     * 
      */
    
     public function recetteAdd(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger)
@@ -94,5 +92,6 @@ class DashboardController extends AbstractController
                 'recette_form'=>$form->createView()
                 ]);
         
-    }
- }
+    } 
+    
+}
