@@ -3,7 +3,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Overlock&display=swap");
 
-// @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -303,10 +303,10 @@ footer {
   
 }
 
-// .form-control {
-//     width : 50%;
-//     margin: auto;
-// }
+.form-control {
+    width : 50%;
+    margin: auto;
+}
 
 .button {
     margin-left: 70%;
@@ -319,6 +319,11 @@ footer {
     color: #7B91BC;
     box-sizing: border-box;
     border:none;
+}
+
+.custom-file-label{
+    width : 50%;
+    margin: auto;
 }
 
 // #ingredient_list{

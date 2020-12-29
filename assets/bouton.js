@@ -19,27 +19,29 @@ document.addEventListener('DOMContentLoaded', function() {
         let protoForm = document.createElement('div');
         protoForm.innerHTML = prototype.replace(index, /__name__/g);
         protoForm = protoForm.firstChild;
+        protoForm.classList.add('recette_form');
       
         console.log(protoForm);
-        document.getElementById('ingredient_list').appendChild(protoForm);
+        
 
         // Champs du conteneur
-        let mediaContent = document.createElement('div');
-        mediaContent.classList.add('media-content');
+        // let mediaContent = document.createElement('div');
+        // mediaContent.classList.add('media-content');
 
         //----------------------------------------------------------------------
         // Delete button
         console.log('666');
-        mediaContent.innerHTML = `<button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".recette_form">
-            <span class="icon"><i class="fal fa-times"></i></span>
-        </button>
-        <div class="columns"></div>; `
+        protoForm.innerHTML += `<button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".recette_form">
+            Supprimer
+        </button> `;
 
         console.log('77');
 
-        mediaContent.querySelector('button').addEventListener('click', function (e) {
+        protoForm.querySelector('button').addEventListener('click', function (e) {
             e.preventDefault();
-            let item = mediaContent.querySelector('button').closest(mediaContent.querySelector('button').dataset.recette_form);
+            let item = protoForm.querySelector('button').closest(protoForm.querySelector('button').dataset.formItem);
+
+        console.log(item)
 
             if (item !== null) {
                 item.remove();
@@ -52,15 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // mediaContent.querySelector('.columns').appendChild(nom);
 
         // Conteneur principal
-        let newForm = document.createElement('div');
-        newForm.classList.add('media', 'ingredient');
-        newForm.appendChild(mediaContent);
+        // let newForm = document.createElement('div');
+        // newForm.classList.add('media', 'ingredient');
+        // newForm.appendChild();
 
         //----------------------------------------------------------------------
 
         // Ajoute le formulaire à la liste
         // addButton.closest('.field').appendChild(newForm);
-       
+        document.getElementById('ingredient_list').appendChild(protoForm);
     });
 });
 
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         protoForms.innerHTML = prototypes.replace(/__name__/g, index);
         protoForms = protoForms.firstChild;
         addButton.dataset.index = index + 1;
+        protoForms.classList.add('recette_form');
 
        
         //----------------------------------------------------------------------
@@ -134,6 +137,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Ajoute le formulaire à la liste
         // addButton.closest('.field').appendChild(newForm);
+         // Delete button
+         console.log('666');
+         protoForms.innerHTML += `<button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".recette_form">
+             <span class="icon">Supprimer</span>
+         </button> `;
+ 
+         console.log('77');
+ 
+         protoForms.querySelector('button').addEventListener('click', function (e) {
+             e.preventDefault();
+             let item = protoForms.querySelector('button').closest(protoForms.querySelector('button').dataset.formItem);
+ 
+         console.log(item)
+ 
+             if (item !== null) {
+                 item.remove();
+             }
+         });
         document.getElementById('ustensile_list').appendChild(protoForms);
     });
 });

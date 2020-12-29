@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repository;
-
+use App\Entity\Recette;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -64,4 +64,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+
+
+    // public function findRecetteUser():array
+    //  {
+    //     //utilisation d'un constructeur de requête
+    //     //Les moceaux de requêtes utlisées st en dql(Doctrine Query Language)
+    //     //on utilise les propriétés des entités au lieu des colonnes des tables
+    //     return $this->createQueryBuilder('r')   //r servira d'alias pour l'entité (table) Recette
+    //     ->where('r.user = :user')
+    //     // ->setParameter('last_month', new \dateTime('-1 month'))
+    //     ->orderBy('r.user', 'DESC')
+    //     ->getQuery()     //on récupère la requête qd on a terminé
+    //     ->getResult();   //on récupère les résultats
+     //}
 }

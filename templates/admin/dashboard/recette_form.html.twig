@@ -1,13 +1,15 @@
  
           {{form_start(recette_form)}}
 
-              {#récupération du pseudo lors de la connexion#}
+                 {# {{ app.user.id }} #}
 
-              {# {% for users in recette_form.users %}
+              {# récupération du pseudo lors de la connexion#}
 
-              {# {{form_row (recette_form.user, {label:'Pseudo :'}) }} #}
+              {# {% for users in recette_form.user %}
 
-              {#{% endfor %}  #}
+                {{form_row (user.id, {label:'Pseudo :'}) }}
+
+              {% endfor %}  #}
 
                 {{form_row (recette_form.name,{label:'Nom de la recette :'}) }}
                 
@@ -18,52 +20,45 @@
 
               <div id='ingredient_list'>
 
+                <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
+                  data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
+                  data-index="{{ recette_form.ingredients|length }}">Ajouter un ingrédient</button>
+
                   {% for ingredients in recette_form.ingredients %}
 
                     {{form_row (ingredients.quantite, {label:'Quantité en grammes :'}) }}
 
-                    {{form_row (ingredients.nom, {label:'Ingrédient par unité :'}) }}  
+                    {{form_row (ingredients.nom, {label:'Ingrédient (1 par ligne):'}) }}  
 
                   
-                  {% endfor %} 
-
-                  
-
-                  <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
-                  data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
-                  data-index="{{ recette_form.ingredients|length }}">Ajouter un ingrédient</button>
-
-
-                   {# <button type="button" class="button is-small is-danger is-light is-pulled-right form-collection-remove" data-form-item=".ingredient">Supprimer un ingrédient</button>#}
-                  
-
-                  <div class="media-content"></div> 
+                  {% endfor %}             
+  
                             
               </div>
 
-              <div id='ustensile_list'>      
+              <div id='ustensile_list'>   
+
+                <button type="button" class="button is-small is-info is-pulled-right" id="ustensile-add-item"
+                      data-prototype="{{ form_widget(recette_form.ustensiles.vars.prototype)|e('html_attr') }}"
+                      data-index="{{ recette_form.ustensiles|length }}">Ajouter un ustensile</button>   
               
                   {% for ustensiles in recette_form.ustensiles %}
 
-                    {{form_row (ustensiles.nom, {label:'Ustensile :'}) }} 
+                    {{form_row (ustensiles.nom, {label:'Ustensile (1 par ligne) :'}) }} 
               
-                  {% endfor %} 
-                  
-                  <button type="button" class="button is-small is-info is-pulled-right" id="ustensile-add-item"
-                      data-prototype="{{ form_widget(recette_form.ustensiles.vars.prototype)|e('html_attr') }}"
-                      data-index="{{ recette_form.ustensiles|length }}">Ajouter un ustensile</button>
+                  {% endfor %}  
               
                 </div>
 
-                {{form_row (recette_form.tps_total, {label:'Temps total :'}) }}       
+                {{form_row (recette_form.tps_total, {label:'Temps total (en min):'}) }}       
 
-                {{form_row (recette_form.tps_prepare, {label:'Temps préparation :'}) }}
+                {{form_row (recette_form.tps_prepare, {label:'Temps préparation (en min):'}) }}
 
-                {{form_row (recette_form.tps_cuisson, {label:'Temps cuisson :'}) }}
+                {{form_row (recette_form.tps_cuisson, {label:'Temps cuisson (en min):'}) }}
 
-                {{form_row (recette_form.imageFile, {label:'Insérer votre vidéo :'}) }} 
+                {{form_row (recette_form.imageFile, {label:'Insérer votre image (taille max 8Mo) :'}) }} 
 
-                {{form_row (recette_form.preparation, {label:'Les étapes de votre recette :'}) }}
+                {{form_row (recette_form.preparation, {label:'Les étapes de votre recette (une ligne par étape) :'}) }}
 
                 <button type="submit" class="button is-primary is-small">
                     Enregistrer

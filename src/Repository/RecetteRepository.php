@@ -29,6 +29,7 @@ class RecetteRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')
             ->setParameter('val', $value)
+            ->orderBy('r.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -48,17 +49,17 @@ class RecetteRepository extends ServiceEntityRepository
     }
     */
 
-    public function findOneByRecette(Request $request)
-    {
-        $keyword= $request->get('searchName');
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.name LIKE :searchName')
-            ->setParameter('searchName', '%'.$keyword.'%')
-            ->orderBy('r.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-            ; 
+    // public function findOneByRecette(Request $request)
+    // {
+    //     $keyword= $request->get('searchName');
+    //     return $this->createQueryBuilder('r')
+    //         ->andWhere('r.name LIKE :searchName')
+    //         ->setParameter('searchName', '%'.$keyword.'%')
+    //         ->orderBy('r.id', 'ASC')
+    //         ->getQuery()
+    //         ->getResult()
+    //         ; 
 
-    }
+    // }
 
 }
