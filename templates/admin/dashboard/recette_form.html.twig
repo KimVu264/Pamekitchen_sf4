@@ -18,9 +18,11 @@
 
         {{form_row (ingredients.quantite, {label:'Quantités :'}) }}
 
-        {{form_row (ingredients.nom, {label:'Ingrédient :'}) }}  
-             
-      {% endfor %}     
+                <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
+                  data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
+                  data-index="{{ recette_form.ingredients|length }}">Ajouter un ingrédient</button>
+
+                  {% for ingredients in recette_form.ingredients %}
 
         <button type="button" class="button is-small is-info is-pulled-right" id="ingredient-add-item"
           data-prototype="{{ form_widget(recette_form.ingredients.vars.prototype)|e('html_attr') }}"
@@ -28,40 +30,45 @@
           Ajouter un ingrédient
         </button>  
 
-                 
-    </div>
+                    {{form_row (ingredients.nom, {label:'Ingrédient (1 par ligne):'}) }}  
 
-    <div id='ustensile_list'>      
-          
-      {% for ustensiles in recette_form.ustensiles %}
+                  
+                  {% endfor %}             
+  
+                            
+              </div>
 
-        {{form_row (ustensiles.nom, {label:'Ustensiles :'}) }} 
-          
-      {% endfor %} 
-        <button type="button" class="button is-small is-info is-pulled-right" id="ustensile-add-item"
-          data-prototype="{{ form_widget(recette_form.ustensiles.vars.prototype)|e('html_attr') }}"
-          data-index="{{ recette_form.ustensiles|length }}">Ajouter un ustensile
-        </button>
-           
-    </div>
+              <div id='ustensile_list'>   
 
-    {{form_row (recette_form.tps_total, {label:'Temps total :'}) }}       
+                <button type="button" class="button is-small is-info is-pulled-right" id="ustensile-add-item"
+                      data-prototype="{{ form_widget(recette_form.ustensiles.vars.prototype)|e('html_attr') }}"
+                      data-index="{{ recette_form.ustensiles|length }}">Ajouter un ustensile</button>   
+              
+                  {% for ustensiles in recette_form.ustensiles %}
 
-    {{form_row (recette_form.tps_prepare, {label:'Temps préparation :'}) }}
+                    {{form_row (ustensiles.nom, {label:'Ustensile (1 par ligne) :'}) }} 
+              
+                  {% endfor %}  
+              
+                </div>
 
-    {{form_row (recette_form.tps_cuisson, {label:'Temps cuisson :'}) }}
+                {{form_row (recette_form.tps_total, {label:'Temps total (en min):'}) }}       
 
-    {{form_row (recette_form.preparation, {label:'Les étapes de votre recette :'}) }}
+                {{form_row (recette_form.tps_prepare, {label:'Temps préparation (en min):'}) }}
+
+                {{form_row (recette_form.tps_cuisson, {label:'Temps cuisson (en min):'}) }}
+
+                {{form_row (recette_form.imageFile, {label:'Insérer votre image (taille max 8Mo) :'}) }} 
+
+                {{form_row (recette_form.preparation, {label:'Les étapes de votre recette (une ligne par étape) :'}) }}
+
+                <button type="submit" class="button is-primary is-small">
+                    Enregistrer
+                </button>
 
 
-    {{form_row (recette_form.brochure, {
-        attr: { 'placeholder': 'Select a file' }  
-        })
-        }}  
+            {{form_end(recette_form)}}
 
-    <button type="submit" class="button is-primary is-fullwidth">
-      Enregistrer
-    </button>
+        
 
-{{form_end (recette_form)}}
-
+      

@@ -67,22 +67,27 @@ class RecetteFormType extends AbstractType
                     new notBlank(['message'=>'Merci de remplir les étapes de votre recette'])
                 ]
             ])
-
+            ->add('imageFile',FileType::class,[
+                'required'=>false,
+                // 'mapped'=>false
+                // 'placeholder'=>'blabla'
+            ])
+        
             ->add('ingredients',CollectionType::class,[
                 'entry_type'=> IngredientFormType::class,
                 'allow_add' => true,
-                'by_reference' => false,
+                'allow_delete' => true,
+                'by_reference'=>false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
                     ])
                 ]  
             ])
-
             ->add('ustensiles',CollectionType::class,[
                 'entry_type'=> UstensileFormType::class,
                 'allow_add' => true,
-                'by_reference' => false,
+                'by_reference'=>false,
                 'constraints'=>[
                     new Count([
                         'min'=>1
@@ -91,25 +96,7 @@ class RecetteFormType extends AbstractType
 
             ])
 
-            ->add('brochure', FileType::class, [
-                'label' => 'Merci de uploader un fichier',
-                'mapped' => false,
-                'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '5G',
-                        'mimeTypes' => [
-                            'image/*',
-                            'video/*',
-                            'application/pdf',
-                            'application/x-pdf',
-                                                     
-                        ],
-                        'mimeTypesMessage' => 'Merci de uploader un fichier valid ',
-                    ])
-                ],
-            ])
-          
+            //  ->add('user',TextType::class)
             
         ;
     }

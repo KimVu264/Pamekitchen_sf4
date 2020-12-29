@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Suppression de {{artist.name}}
+    Suppression de {{recette.name}}
 
 {% endblock %}
 
@@ -10,7 +10,7 @@
 
     <div class="section">
 
-        <h1 class="title">Suppression de l'artiste {{artist.name}}</h1>
+        <h1 class="title">Suppression de la recette {{recette.name}}</h1>
 
         {% include "includes/flash.html.twig" %}
 
@@ -19,7 +19,7 @@
 
             {{form_row (confirm_form.confirmation,{
                 
-                label:'Je confirme la suppression de l\'artiste'~ artist.name ~ 'et de ses albums.'
+                label:'Je confirme la suppression de la recette'~ recette.name
 
             }) }}
 

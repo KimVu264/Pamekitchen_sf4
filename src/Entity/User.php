@@ -51,6 +51,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Recette::class, mappedBy="user")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $recettes;
 
@@ -59,6 +60,7 @@ class User implements UserInterface
      * 
      */
     private $pseudo;
+   
 
     public function __construct()
     {

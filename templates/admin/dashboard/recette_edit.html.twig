@@ -1,8 +1,8 @@
-{% extends "admin/_template.html.twig" %}
+{% extends "admin/_templateadmin.html.twig" %}
 
 {% block title %}
 
-    Artiste - {{artist.name}}
+    Artiste - {{recette.name}}
 
 {% endblock %}
 
@@ -10,10 +10,11 @@
 
     <div class="section">
 
-        <h1 class="title">{{artist.name}}</h1>
+        <h1 class="title">{{recette.name}}</h1>
+
         {% include "includes/flash.html.twig" %}
 
-        {% include "admin/dashboard/_templateadmin.html.twig" %}
+        {% include "admin/dashboard/recette_form.html.twig" %}
     
     </div>
 

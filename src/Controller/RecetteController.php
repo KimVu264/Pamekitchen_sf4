@@ -49,11 +49,11 @@ class RecetteController extends AbstractController
     public function recetteCat(int $id, RecetteRepository $recetteRepository): Response
     { 
     
-        $id = $
-        return $this->render('recette/recette_cat.html.twig',[
-         'cat_recette' => $recetteRepository->findBy([], ['category'=> $id]),
+    
+        // return $this->render('recette/recette_cat.html.twig',[
+        //  'cat_recette' => $recetteRepository->findBy([], ['category'=> $id]),
            
-         ]);
+        //  ]);
 
     }
 

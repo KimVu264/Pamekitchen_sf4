@@ -1,0 +1,20 @@
+{% extends "_template.html.twig" %}
+
+
+    {% block title %}
+
+        Ajout recette
+
+    {% endblock  %}
+
+    {%  block content %}
+
+        {# {% include "includes/flash.html.twig" %}     #}
+
+        <div class="section">
+            <h1 class="title">Ajout recette</h1>
+        </div>
+
+        {% include "/user/recette_form.html.twig" %}
+
+    {% endblock %}
